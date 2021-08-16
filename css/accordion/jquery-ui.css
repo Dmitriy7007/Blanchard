@@ -1,0 +1,286 @@
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.ui-accordion .ui-accordion-header {
+	display: flex;
+	cursor: pointer;
+	position: relative;
+	align-items: center;
+	height: 115px;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 32px;
+}
+
+.ui-accordion .ui-accordion-content {
+	padding-top: 25px;
+	padding-bottom: 25px;
+	padding-right: 105px;
+	border-top: 1px solid #CACACA;
+}
+
+.ui-widget-content {
+	color: #333333;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+.ui-button.ui-state-disabled:active {
+	border-top: 1px solid #CACACA;
+	font-weight: normal;
+	color: #333333;
+}
+
+#ui-id-13,
+#ui-id-27,
+#ui-id-41,
+#ui-id-55,
+#ui-id-69 {
+	border-bottom: 1px solid #CACACA;
+}
+
+#ui-id-14,
+#ui-id-28,
+#ui-id-42,
+#ui-id-56,
+#ui-id-70 {
+	border-top: none;
+	border-bottom: 1px solid #CACACA;
+}
+
+.ui-accordion-header:hover {
+	color: #9D5CD0;
+	cursor: pointer;
+	transition: border-color, color 0.3s ease-in-out;
+	border-color: #9D5CD0;
+}
+
+.ui-accordion-header:active {
+	color: #7943A4;
+	border-color: #7943A4;
+}
+
+#ui-id-1:hover ~ #ui-id-3,
+#ui-id-3:hover ~ #ui-id-5,
+#ui-id-5:hover ~ #ui-id-7,
+#ui-id-7:hover ~ #ui-id-9,
+#ui-id-9:hover ~ #ui-id-11,
+#ui-id-11:hover ~ #ui-id-13,
+#ui-id-1:hover ~ #ui-id-2,
+#ui-id-3:hover ~ #ui-id-4,
+#ui-id-5:hover ~ #ui-id-6,
+#ui-id-7:hover ~ #ui-id-8,
+#ui-id-9:hover ~ #ui-id-10,
+#ui-id-11:hover ~ #ui-id-12,
+
+#ui-id-15:hover ~ #ui-id-17,
+#ui-id-17:hover ~ #ui-id-19,
+#ui-id-19:hover ~ #ui-id-21,
+#ui-id-21:hover ~ #ui-id-23,
+#ui-id-23:hover ~ #ui-id-25,
+#ui-id-25:hover ~ #ui-id-27,
+#ui-id-15:hover ~ #ui-id-16,
+#ui-id-17:hover ~ #ui-id-18,
+#ui-id-19:hover ~ #ui-id-20,
+#ui-id-21:hover ~ #ui-id-22,
+#ui-id-23:hover ~ #ui-id-24,
+#ui-id-25:hover ~ #ui-id-26,
+
+#ui-id-29:hover ~ #ui-id-31,
+#ui-id-31:hover ~ #ui-id-33,
+#ui-id-33:hover ~ #ui-id-35,
+#ui-id-35:hover ~ #ui-id-37,
+#ui-id-37:hover ~ #ui-id-39,
+#ui-id-39:hover ~ #ui-id-41,
+#ui-id-29:hover ~ #ui-id-30,
+#ui-id-31:hover ~ #ui-id-32,
+#ui-id-33:hover ~ #ui-id-34,
+#ui-id-35:hover ~ #ui-id-36,
+#ui-id-37:hover ~ #ui-id-38,
+#ui-id-39:hover ~ #ui-id-40,
+
+#ui-id-43:hover ~ #ui-id-45,
+#ui-id-45:hover ~ #ui-id-47,
+#ui-id-47:hover ~ #ui-id-49,
+#ui-id-49:hover ~ #ui-id-51,
+#ui-id-51:hover ~ #ui-id-53,
+#ui-id-53:hover ~ #ui-id-55,
+#ui-id-43:hover ~ #ui-id-44,
+#ui-id-45:hover ~ #ui-id-46,
+#ui-id-47:hover ~ #ui-id-48,
+#ui-id-49:hover ~ #ui-id-50,
+#ui-id-51:hover ~ #ui-id-52,
+#ui-id-53:hover ~ #ui-id-54,
+
+#ui-id-57:hover ~ #ui-id-59,
+#ui-id-59:hover ~ #ui-id-61,
+#ui-id-61:hover ~ #ui-id-63,
+#ui-id-63:hover ~ #ui-id-65,
+#ui-id-65:hover ~ #ui-id-67,
+#ui-id-67:hover ~ #ui-id-69,
+#ui-id-57:hover ~ #ui-id-58,
+#ui-id-59:hover ~ #ui-id-60,
+#ui-id-61:hover ~ #ui-id-62,
+#ui-id-63:hover ~ #ui-id-64,
+#ui-id-65:hover ~ #ui-id-66,
+#ui-id-67:hover ~ #ui-id-68 {
+	border-top: 1px solid #9D5CD0;
+	transition: border-color, color 0.3s ease-in-out;
+}
+
+#ui-id-1:active ~ #ui-id-3,
+#ui-id-3:active ~ #ui-id-5,
+#ui-id-5:active ~ #ui-id-7,
+#ui-id-7:active ~ #ui-id-9,
+#ui-id-9:active ~ #ui-id-11,
+#ui-id-11:active ~ #ui-id-13,
+#ui-id-1:active ~ #ui-id-2,
+#ui-id-3:active ~ #ui-id-4,
+#ui-id-5:active ~ #ui-id-6,
+#ui-id-7:active ~ #ui-id-8,
+#ui-id-9:active ~ #ui-id-10,
+#ui-id-11:active ~ #ui-id-12,
+
+#ui-id-15:active ~ #ui-id-17,
+#ui-id-17:active ~ #ui-id-19,
+#ui-id-19:active ~ #ui-id-21,
+#ui-id-21:active ~ #ui-id-23,
+#ui-id-23:active ~ #ui-id-25,
+#ui-id-25:active ~ #ui-id-27,
+#ui-id-15:active ~ #ui-id-16,
+#ui-id-17:active ~ #ui-id-18,
+#ui-id-19:active ~ #ui-id-20,
+#ui-id-21:active ~ #ui-id-22,
+#ui-id-23:active ~ #ui-id-24,
+#ui-id-25:active ~ #ui-id-26,
+
+#ui-id-29:active ~ #ui-id-31,
+#ui-id-31:active ~ #ui-id-33,
+#ui-id-33:active ~ #ui-id-35,
+#ui-id-35:active ~ #ui-id-37,
+#ui-id-37:active ~ #ui-id-39,
+#ui-id-39:active ~ #ui-id-41,
+#ui-id-29:active ~ #ui-id-30,
+#ui-id-31:active ~ #ui-id-32,
+#ui-id-33:active ~ #ui-id-34,
+#ui-id-35:active ~ #ui-id-36,
+#ui-id-37:active ~ #ui-id-38,
+#ui-id-39:active ~ #ui-id-40,
+
+#ui-id-43:active ~ #ui-id-45,
+#ui-id-45:active ~ #ui-id-47,
+#ui-id-47:active ~ #ui-id-49,
+#ui-id-49:active ~ #ui-id-51,
+#ui-id-51:active ~ #ui-id-53,
+#ui-id-53:active ~ #ui-id-55,
+#ui-id-43:active ~ #ui-id-44,
+#ui-id-45:active ~ #ui-id-46,
+#ui-id-47:active ~ #ui-id-48,
+#ui-id-49:active ~ #ui-id-50,
+#ui-id-51:active ~ #ui-id-52,
+#ui-id-53:active ~ #ui-id-54,
+
+#ui-id-57:active ~ #ui-id-59,
+#ui-id-59:active ~ #ui-id-61,
+#ui-id-61:active ~ #ui-id-63,
+#ui-id-63:active ~ #ui-id-65,
+#ui-id-65:active ~ #ui-id-67,
+#ui-id-67:active ~ #ui-id-69,
+#ui-id-57:active ~ #ui-id-58,
+#ui-id-59:active ~ #ui-id-60,
+#ui-id-61:active ~ #ui-id-62,
+#ui-id-63:active ~ #ui-id-64,
+#ui-id-65:active ~ #ui-id-66,
+#ui-id-67:active ~ #ui-id-68{
+	border-top: 1px solid #7943A4;
+	transition: border-color, color 0.3s ease-in-out;
+}
+
+#ui-id-13:hover,
+#ui-id-13:hover ~ #ui-id-14,
+#ui-id-27:hover,
+#ui-id-27:hover ~ #ui-id-28,
+#ui-id-41:hover,
+#ui-id-41:hover ~ #ui-id-42,
+#ui-id-55:hover,
+#ui-id-55:hover ~ #ui-id-56,
+#ui-id-69:hover,
+#ui-id-69:hover ~ #ui-id-70 {
+	border-bottom: 1px solid #9D5CD0;
+	transition: border-color, color 0.3s ease-in-out;
+}
+
+#ui-id-13:active,
+#ui-id-13:active ~ #ui-id-14,
+#ui-id-27:active,
+#ui-id-27:active ~ #ui-id-28,
+#ui-id-41:active,
+#ui-id-41:active ~ #ui-id-42,
+#ui-id-55:active,
+#ui-id-55:active ~ #ui-id-56,
+#ui-id-69:active,
+#ui-id-69:active ~ #ui-id-70 {
+	border-bottom: 1px solid #9D5CD0;
+	transition: border-color, color 0.3s ease-in-out;
+}
+
+.ui-icon {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url("../img/svg/arrow-accord-norm.svg");
+	right: 0;
+}
+
+.ui-state-default:focus .ui-icon {
+	background-image: url("../img/svg/arrow-accord-focus.svg");
+	transition: background-image .3s ease-in-out;
+}
+
+.ui-state-hover .ui-icon,
+.ui-state-default:hover .ui-icon {
+	background-image: url("../img/svg/arrow-accord-focus.svg");
+	transition: background-image .3s ease-in-out;
+}
+
+.ui-state-default:active .ui-icon {
+	background-image: url("../img/svg/arrow-accord-active.svg");
+	transition: background-image .3s ease-in-out;
+}
+
+.ui-icon-triangle-1-e { 
+	background-position: center; 
+}
+
+.ui-icon-triangle-1-s { 
+	transition: background-image .3s ease-in-out;
+	transform: rotate(180deg); 
+}
+
+.ui-accordion .ui-accordion-header:focus .ui-accordion__header-wrapper {
+	color: #FFF;
+	background-color: #9D5CD0;
+}
+
+.ui-accordion .ui-accordion-header:active .ui-accordion__header-wrapper {
+	color: #7943A4;
+	background-color: inherit;
+}
+
+.ui-accordion .ui-accordion-header:focus {
+	outline: none;
+}
+
+.ui-accordion .ui-accordion-header:active {
+	outline: none;
+}
+
+
