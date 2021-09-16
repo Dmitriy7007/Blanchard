@@ -236,23 +236,23 @@
 	height: 50px;
 	background-repeat: no-repeat;
 	background-size: contain;
-	background-image: url("../img/svg/arrow-accord-norm.svg");
+	background-image: url("/css/img/svg/arrow-accord-norm.svg");
 	right: 0;
 }
 
 .ui-state-default:focus .ui-icon {
-	background-image: url("../img/svg/arrow-accord-focus.svg");
+	background-image: url("/css/img/svg/arrow-accord-focus.svg");
 	transition: background-image .3s ease-in-out;
 }
 
 .ui-state-hover .ui-icon,
 .ui-state-default:hover .ui-icon {
-	background-image: url("../img/svg/arrow-accord-focus.svg");
+	background-image: url("/css/img/svg/arrow-accord-focus.svg");
 	transition: background-image .3s ease-in-out;
 }
 
 .ui-state-default:active .ui-icon {
-	background-image: url("../img/svg/arrow-accord-active.svg");
+	background-image: url("/css/img/svg/arrow-accord-active.svg");
 	transition: background-image .3s ease-in-out;
 }
 

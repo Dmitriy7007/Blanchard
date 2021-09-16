@@ -7,26 +7,26 @@
   <title>Blanchard</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/font/opensans.css">
-  <link rel="stylesheet" href="css/Choices-master/public/assets/styles/choices.min.css">
-  <link rel="stylesheet" href="css/simplebar-master/simplebar-master/packages/simplebar/src/simplebar.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="css/accordion/jquery-ui.css">
+  <link rel="stylesheet" href="libs/Choices-master/public/assets/styles/choices.min.css">
+  <link rel="stylesheet" href="libs/simplebar-master/simplebar-master/packages/simplebar/src/simplebar.css">
+  <link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="libs/accordion/jquery-ui.css">
   <link rel="stylesheet" href="css/modal.css">
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
-  <script src="jquery-3.6.0.min.js"></script>
+  <script src="libs/swiper/swiper-bundle.min.js "></script>
+  <script src="libs/simplebar-master/simplebar-master/simplebar.min.js"></script>
+  <script src="js/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="css/Inputmask-5.x/Inputmask-5.x/dist/inputmask.min.js"></script>
-  <script src="css/Just-validate-master/Just-validate-master/dist/js/just-validate.min.js"></script>
-  <script src="tabs.js"></script>
-  <script src="tabs2.js"></script>
-  <script src="btn-hidden.js"></script>
-  <script src="anchor.js"></script>
-  <script src="anchor_2.js"></script>
-  <script src="lowermenu.js"></script>
-  <script src="burger.js"></script>
-  <script src="modal.js"></script>
+  <script src="libs/Inputmask-5.x/Inputmask-5.x/dist/inputmask.min.js"></script>
+  <script src="libs/Just-validate-master/Just-validate-master/dist/js/just-validate.min.js"></script>
+  <script src="js/tabs.js"></script>
+  <script src="js/tabs2.js"></script>
+  <script src="js/btn-hidden.js"></script>
+  <script src="js/anchor.js"></script>
+  <script src="js/anchor_2.js"></script>
+  <script src="js/lowermenu.js"></script>
+  <script src="js/burger.js"></script>
+  <script src="js/modal.js"></script>
   <link rel="stylesheet" href="css/css.css">
 </head>
 <body>
@@ -36,8 +36,8 @@
 
         <!-- header-burger -->
 
-        <div class="hamburger-menu" tabindex="1">
-          <ul class="menu__box" tabindex="1">
+        <div class="hamburger-menu" tabindex="0">
+          <ul class="menu__box" tabindex="0">
             <li class="menu-nav__item">
               <a href="#info" class="menu-nav__link">О нас</a>
             </li>
@@ -59,22 +59,18 @@
             <li class="menu-nav__item">
               <a href="#contacts" class="menu-nav__link">Контакты</a>
             </li>
-            <li>
-              <a href="#" class="menu-user__link">
-                <span class="menu-user__link_vector"></span>
-                Войти  
-              </a>
+            <li class="menu-nav__item">
+              <a href="#" class="menu-user__link">Войти</a>
             </li>
           </ul>
         </div>
-        <div id="burger" class="burger" tabindex="0"></div>
+        <a href="#" id="burger" class="burger"></a>
+
+        <!-- menu -->
 
         <a href="" class="menu-logo">
           <img src="css/img/logo.png" alt="Логотип Blanchard" class="menu-logo__img">
         </a>
-
-        <!-- menu -->
-
         <nav class="menu-nav" id="menu">
           <ul class="menu-nav__list">
             <li class="menu-nav__item">
@@ -100,12 +96,7 @@
             </li>
           </ul>
         </nav>
-        <div class="menu-user">
-          <a href="#" class="menu-user__link">
-            <span class="menu-user__link_vector"></span>
-            Войти  
-          </a>
-        </div>
+        <a href="#" class="menu-user__link">Войти</a>
       </div>
     </div>
 
@@ -119,12 +110,12 @@
               <span class="lowermenu__item-icon"></span>
             </a>
             <ul class="tabs-pane" id="one" data-simplebar>
-              <li class="tabs-pane__item-1"><a href="#" class="tabs-pane__link">Тинторетто</a></li>
-              <li class="tabs-pane__item-2"><a href="#" class="tabs-pane__link">Фридрих</a></li>
-              <li class="tabs-pane__item-3"><a href="#" class="tabs-pane__link">Леонардо</a></li>
-              <li class="tabs-pane__item-1"><a href="#" class="tabs-pane__link">Веррокьо</a></li>
-              <li class="tabs-pane__item-2"><a href="#" class="tabs-pane__link">Микеланджело</a></li>
-              <li class="tabs-pane__item-3"><a href="#" class="tabs-pane__link">Донателло</a></li>
+              <li class="tabs-pane__item tabs-pane__item-1"><a href="#" class="tabs-pane__link">Тинторетто</a></li>
+              <li class="tabs-pane__item tabs-pane__item-2"><a href="#" class="tabs-pane__link">Фридрих</a></li>
+              <li class="tabs-pane__item tabs-pane__item-3"><a href="#" class="tabs-pane__link">Леонардо</a></li>
+              <li class="tabs-pane__item tabs-pane__item-1"><a href="#" class="tabs-pane__link">Веррокьо</a></li>
+              <li class="tabs-pane__item tabs-pane__item-2"><a href="#" class="tabs-pane__link">Микеланджело</a></li>
+              <li class="tabs-pane__item tabs-pane__item-3"><a href="#" class="tabs-pane__link">Донателло</a></li>
             </ul>
           </li>
           <li class="lowermenu__item">
@@ -132,12 +123,12 @@
               <span class="lowermenu__item-icon"></span>
             </a>
             <ul class="tabs-pane" id="two" data-simplebar>
-              <li class="tabs-pane__item-1"><a href="#" class="tabs-pane__link">Тинторетто</a></li>
-              <li class="tabs-pane__item-2"><a href="#" class="tabs-pane__link">Фридрих</a></li>
-              <li class="tabs-pane__item-3"><a href="#" class="tabs-pane__link">Леонардо</a></li>
-              <li class="tabs-pane__item-1"><a href="#" class="tabs-pane__link">Веррокьо</a></li>
-              <li class="tabs-pane__item-2"><a href="#" class="tabs-pane__link">Микеланджело</a></li>
-              <li class="tabs-pane__item-3"><a href="#" class="tabs-pane__link">Донателло</a></li>
+              <li class="tabs-pane__item tabs-pane__item-1"><a href="#" class="tabs-pane__link">Тинторетто</a></li>
+              <li class="tabs-pane__item tabs-pane__item-2"><a href="#" class="tabs-pane__link">Фридрих</a></li>
+              <li class="tabs-pane__item tabs-pane__item-3"><a href="#" class="tabs-pane__link">Леонардо</a></li>
+              <li class="tabs-pane__item tabs-pane__item-1"><a href="#" class="tabs-pane__link">Веррокьо</a></li>
+              <li class="tabs-pane__item tabs-pane__item-2"><a href="#" class="tabs-pane__link">Микеланджело</a></li>
+              <li class="tabs-pane__item tabs-pane__item-3"><a href="#" class="tabs-pane__link">Донателло</a></li>
             </ul>
           </li>
           <li class="lowermenu__item">
@@ -145,12 +136,12 @@
               <span class="lowermenu__item-icon"></span>
             </a>
             <ul class="tabs-pane" id="three" data-simplebar>
-              <li class="tabs-pane__item-1"><a href="#" class="tabs-pane__link">Тинторетто</a></li>
-              <li class="tabs-pane__item-2"><a href="#" class="tabs-pane__link">Фридрих</a></li>
-              <li class="tabs-pane__item-3"><a href="#" class="tabs-pane__link">Леонардо</a></li>
-              <li class="tabs-pane__item-1"><a href="#" class="tabs-pane__link">Веррокьо</a></li>
-              <li class="tabs-pane__item-2"><a href="#" class="tabs-pane__link">Микеланджело</a></li>
-              <li class="tabs-pane__item-3"><a href="#" class="tabs-pane__link">Донателло</a></li>
+              <li class="tabs-pane__item tabs-pane__item-1"><a href="#" class="tabs-pane__link">Тинторетто</a></li>
+              <li class="tabs-pane__item tabs-pane__item-2"><a href="#" class="tabs-pane__link">Фридрих</a></li>
+              <li class="tabs-pane__item tabs-pane__item-3"><a href="#" class="tabs-pane__link">Леонардо</a></li>
+              <li class="tabs-pane__item tabs-pane__item-1"><a href="#" class="tabs-pane__link">Веррокьо</a></li>
+              <li class="tabs-pane__item tabs-pane__item-2"><a href="#" class="tabs-pane__link">Микеланджело</a></li>
+              <li class="tabs-pane__item tabs-pane__item-3"><a href="#" class="tabs-pane__link">Донателло</a></li>
             </ul>
           </li>
           <li class="lowermenu__item">
@@ -158,12 +149,12 @@
               <span class="lowermenu__item-icon"></span>
             </a>
             <ul class="tabs-pane" id="four" data-simplebar>
-              <li class="tabs-pane__item-1"><a href="#" class="tabs-pane__link">Тинторетто</a></li>
-              <li class="tabs-pane__item-2"><a href="#" class="tabs-pane__link">Фридрих</a></li>
-              <li class="tabs-pane__item-3"><a href="#" class="tabs-pane__link">Леонардо</a></li>
-              <li class="tabs-pane__item-1"><a href="#" class="tabs-pane__link">Веррокьо</a></li>
-              <li class="tabs-pane__item-2"><a href="#" class="tabs-pane__link">Микеланджело</a></li>
-              <li class="tabs-pane__item-3"><a href="#" class="tabs-pane__link">Донателло</a></li>
+              <li class="tabs-pane__item tabs-pane__item-1"><a href="#" class="tabs-pane__link">Тинторетто</a></li>
+              <li class="tabs-pane__item tabs-pane__item-2"><a href="#" class="tabs-pane__link">Фридрих</a></li>
+              <li class="tabs-pane__item tabs-pane__item-3"><a href="#" class="tabs-pane__link">Леонардо</a></li>
+              <li class="tabs-pane__item tabs-pane__item-1"><a href="#" class="tabs-pane__link">Веррокьо</a></li>
+              <li class="tabs-pane__item tabs-pane__item-2"><a href="#" class="tabs-pane__link">Микеланджело</a></li>
+              <li class="tabs-pane__item tabs-pane__item-3"><a href="#" class="tabs-pane__link">Донателло</a></li>
             </ul>
           </li>
           <li class="lowermenu__item">
@@ -171,47 +162,45 @@
               <span class="lowermenu__item-icon"></span>
             </a>
             <ul class="tabs-pane" id="five" data-simplebar>
-              <li class="tabs-pane__item-1"><a href="#" class="tabs-pane__link">Тинторетто</a></li>
-              <li class="tabs-pane__item-2"><a href="#" class="tabs-pane__link">Фридрих</a></li>
-              <li class="tabs-pane__item-3"><a href="#" class="tabs-pane__link">Леонардо</a></li>
-              <li class="tabs-pane__item-1"><a href="#" class="tabs-pane__link">Веррокьо</a></li>
-              <li class="tabs-pane__item-2"><a href="#" class="tabs-pane__link">Микеланджело</a></li>
-              <li class="tabs-pane__item-3"><a href="#" class="tabs-pane__link">Донателло</a></li>
+              <li class="tabs-pane__item tabs-pane__item-1"><a href="#" class="tabs-pane__link">Тинторетто</a></li>
+              <li class="tabs-pane__item tabs-pane__item-2"><a href="#" class="tabs-pane__link">Фридрих</a></li>
+              <li class="tabs-pane__item tabs-pane__item-3"><a href="#" class="tabs-pane__link">Леонардо</a></li>
+              <li class="tabs-pane__item tabs-pane__item-1"><a href="#" class="tabs-pane__link">Веррокьо</a></li>
+              <li class="tabs-pane__item tabs-pane__item-2"><a href="#" class="tabs-pane__link">Микеланджело</a></li>
+              <li class="tabs-pane__item tabs-pane__item-3"><a href="#" class="tabs-pane__link">Донателло</a></li>
             </ul>
           </li>
         </ul>
 
         <!-- search-form -->
 
-        <div class="header-lowermenu__right">
-          <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="lowermenu__search-form">
-            <button aria-label="Кнопка поиска" type="submit" class="lowermenu__search-btn"></button>
-            <input type="search" class="lowermenu__search" name="поиск по сайту" autocomplete="off" placeholder="Поиск по сайту">
-          </form>
-        </div>
+        <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="lowermenu__search-form">
+          <button aria-label="Кнопка поиска" type="submit" class="lowermenu__search-btn"></button>
+          <input type="search" class="lowermenu__search" name="поиск по сайту" autocomplete="off" placeholder="Поиск по сайту">
+        </form>
 
       </div>  
     </div>
   </header>
 
   <section class="section-hero" id="hero">
-    <div class="container section-hero__container ">
-      <div class="section-hero__content">
-        <h1 class="section-hero__heading">
-          Прикоснитесь к прекрасному
-        </h1>
-        <p class="section-hero__descr">
-          Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.
-        </p>
-        <a href="#contacts" class="section-hero__btn" aria-label="Кнопка" tabindex="0">
-          Подписаться на рассылку
-        </a> 
+    <div class="section-hero__container">
+      <div class="section-hero__content container">
+        <p class="section-hero__name">Прикоснитесь к прекрасному</p>
+        <p class="section-hero__descr">Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
+        <a href="#contacts" class="section-hero__btn" aria-label="Кнопка" tabindex="0">Подписаться на рассылку</a> 
       </div>
       <div class="swiper-container" id="swip-7">
         <div class="swiper-wrapper">
-          <div class="swiper-slide section-hero__background section-hero__background_1"></div>
-          <div class="swiper-slide section-hero__background section-hero__background_2"></div>
-          <div class="swiper-slide section-hero__background section-hero__background_3"></div>
+          <div class="swiper-slide">
+            <div class="section-hero__background section-hero__background_1"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="section-hero__background section-hero__background_2"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="section-hero__background section-hero__background_3"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -256,7 +245,7 @@
           <div class="section-gallery__note">Вам предоставляется 10 бесплатных скачиваний. Для увеличения количества скачиваний <a href="#" class="section-gallery__note-link" aria-label="Кнопка">авторизуйтесь,</a> либо воспользуйтесь лицензией.</div>
         </div>
 
-        <script src="css/Choices-master/public/assets/scripts/choices.min.js"></script>
+        <script src="libs/Choices-master/public/assets/scripts/choices.min.js"></script>
 
         <script>
           const select = document.querySelector('#selectCustom');
@@ -538,27 +527,27 @@
           <!-- catalog__tabs -->
 
           <ul class="section-catalog__tabs-list">
-            <li class="section-catalog tabs__item">
+            <li class="tabs__item">
               <button class="section-catalog-link tabs__btn" data-path="one" aria-label="Кнопка выбора языка (французский)">
                 <img src="css/img/image1.png" alt="" class="tabs-img">
               </button>
             </li>
-            <li class="section-catalog tabs__item">
+            <li class="tabs__item">
               <button class="section-catalog-link tabs__btn" data-path="two" aria-label="Кнопка выбора языка (немецкий)">
                 <img src="css/img/image2.png" alt="" class="tabs-img">
               </button>
             </li>
-            <li class="section-catalog tabs__item">
+            <li class="tabs__item">
               <button class="section-catalog-link tabs__btn" data-path="three" aria-label="Кнопка выбора языка (итальянский)">
                 <img src="css/img/image3.png" alt="" class="tabs-img">
               </button>
             </li>
-            <li class="section-catalog tabs__item">
+            <li class="tabs__item">
               <button class="section-catalog-link tabs__btn" data-path="four" aria-label="Кнопка выбора языка (русский)">
                 <img src="css/img/image4.png" alt="" class="tabs-img">
               </button>
             </li>
-            <li class="section-catalog tabs__item">
+            <li class="tabs__item">
               <button class="section-catalog-link tabs__btn section-catalog__last-link" data-path="five" aria-label="Кнопка выбора языка (бельгийский)">
                 <img src="css/img/image5.png" alt="" class="tabs-img">
               </button>
@@ -1487,11 +1476,11 @@
 
     <section class="section-editions" id="editions">
       <div class="section-editions__container container">
-        <h2 class="section-editions__heading">Издания</h2>
         <div class="section-editions__content">
 
           <!-- editions__checkbox -->
 
+          <h2 class="section-editions__heading">Издания</h2>
           <div class="checkbox-custom">
             <div class="section-editions__checkbox-heading">Категории</div>
             <ul class="checkbox__list">
@@ -1565,335 +1554,334 @@
               <div class="section-editions__price-rub">руб.</div>
             </div>
           </div>
+        </div>
 
-          <!-- editions-choices -->
+        <!-- editions-choices -->
 
-          <div class="checkbox-custom__mobile">
-            <div class="section-editions__checkbox-heading" id="but" onclick="but()">Категории<span class="checkbox-icon-arr"></span></div>
-            
-            <ul class="checkbox__list" id="checkbox">
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-13" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-13" class="label__checkbox" tabindex="0">
-                  Бестселлеры
-                  <span class="checkbox-icon2"></span>
-                </label>
-              </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-14" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-14" class="label__checkbox" tabindex="0">
-                  Искусство
-                  <span class="checkbox-icon2"></span>
-                </label>
-              </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-15" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-15" class="label__checkbox" tabindex="0">
-                  Архитектура
-                  <span class="checkbox-icon2"></span>
-                </label>
-              </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-16" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-16" class="label__checkbox" tabindex="0">
-                  Дизайн
-                  <span class="checkbox-icon2"></span>
-                </label>
-              </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-17" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-17" class="label__checkbox" tabindex="0">
-                  Мода
-                  <span class="checkbox-icon2"></span>
-                </label>
-              </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-18" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-18" class="label__checkbox" tabindex="0">
-                  Детям
-                  <span class="checkbox-icon2"></span>
-                </label>
-              </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-19" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-19" class="label__checkbox" tabindex="0">
-                  Художественная литература
-                  <span class="checkbox-icon2"></span>
-                </label>
-              </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-20" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-20" class="label__checkbox" tabindex="0">
-                  Публицистика
-                  <span class="checkbox-icon2"></span>
-                </label>
-              </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-21" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-21" class="label__checkbox" tabindex="0">
-                  Путеводители
-                  <span class="checkbox-icon2"></span>
-                </label>
-              </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-22" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-22" class="label__checkbox" tabindex="0">
-                  Философия
-                  <span class="checkbox-icon2"></span>
-                </label>
-              </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-23" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-23" class="label__checkbox" tabindex="0">
-                  Учебная литература
-                  <span class="checkbox-icon2"></span>
-                </label>
-              </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-24" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-24" class="label__checkbox" tabindex="0">
-                  Журналы и газеты
-                  <span class="checkbox-icon2"></span>
-                </label>
-              </li>
-            </ul>
-            <div class="section-editions__price-heading">Цена</div>
-            <div class="section-editions__price-content">
-              <label for="price-from" class="section-editions__price-from">От</label>
-              <input type="number" step="0.01" min="0" placeholder="50" id="price-from__mobile">
-              <label for="price-up-to" class="section-editions__price-up-to">до</label>
-              <input type="number" step="0.01" min="0" placeholder="25 000" id="price-up-to__mobile">
-              <div class="section-editions__price-rub">руб.</div>
-            </div>
+        <div class="checkbox-custom__mobile">
+          <div class="section-editions__checkbox-heading" id="but" onclick="but()">Категории<span class="checkbox-icon-arr"></span></div>
+          <ul class="checkbox__list" id="checkbox">
+            <li class="checkbox__item">
+              <input type="checkbox" name="категории" id="checkbox-13" class="checkbox">
+              <span class="checkbox-icon"></span>
+              <label for="checkbox-13" class="label__checkbox" tabindex="0">
+                Бестселлеры
+                <span class="checkbox-icon2"></span>
+              </label>
+            </li>
+            <li class="checkbox__item">
+              <input type="checkbox" name="категории" id="checkbox-14" class="checkbox">
+              <span class="checkbox-icon"></span>
+              <label for="checkbox-14" class="label__checkbox" tabindex="0">
+                Искусство
+                <span class="checkbox-icon2"></span>
+              </label>
+            </li>
+            <li class="checkbox__item">
+              <input type="checkbox" name="категории" id="checkbox-15" class="checkbox">
+              <span class="checkbox-icon"></span>
+              <label for="checkbox-15" class="label__checkbox" tabindex="0">
+                Архитектура
+                <span class="checkbox-icon2"></span>
+              </label>
+            </li>
+            <li class="checkbox__item">
+              <input type="checkbox" name="категории" id="checkbox-16" class="checkbox">
+              <span class="checkbox-icon"></span>
+              <label for="checkbox-16" class="label__checkbox" tabindex="0">
+                Дизайн
+                <span class="checkbox-icon2"></span>
+              </label>
+            </li>
+            <li class="checkbox__item">
+              <input type="checkbox" name="категории" id="checkbox-17" class="checkbox">
+              <span class="checkbox-icon"></span>
+              <label for="checkbox-17" class="label__checkbox" tabindex="0">
+                Мода
+                <span class="checkbox-icon2"></span>
+              </label>
+            </li>
+            <li class="checkbox__item">
+              <input type="checkbox" name="категории" id="checkbox-18" class="checkbox">
+              <span class="checkbox-icon"></span>
+              <label for="checkbox-18" class="label__checkbox" tabindex="0">
+                Детям
+                <span class="checkbox-icon2"></span>
+              </label>
+            </li>
+            <li class="checkbox__item">
+              <input type="checkbox" name="категории" id="checkbox-19" class="checkbox">
+              <span class="checkbox-icon"></span>
+              <label for="checkbox-19" class="label__checkbox" tabindex="0">
+                Художественная литература
+                <span class="checkbox-icon2"></span>
+              </label>
+            </li>
+            <li class="checkbox__item">
+              <input type="checkbox" name="категории" id="checkbox-20" class="checkbox">
+              <span class="checkbox-icon"></span>
+              <label for="checkbox-20" class="label__checkbox" tabindex="0">
+                Публицистика
+                <span class="checkbox-icon2"></span>
+              </label>
+            </li>
+            <li class="checkbox__item">
+              <input type="checkbox" name="категории" id="checkbox-21" class="checkbox">
+              <span class="checkbox-icon"></span>
+              <label for="checkbox-21" class="label__checkbox" tabindex="0">
+                Путеводители
+                <span class="checkbox-icon2"></span>
+              </label>
+            </li>
+            <li class="checkbox__item">
+              <input type="checkbox" name="категории" id="checkbox-22" class="checkbox">
+              <span class="checkbox-icon"></span>
+              <label for="checkbox-22" class="label__checkbox" tabindex="0">
+                Философия
+                <span class="checkbox-icon2"></span>
+              </label>
+            </li>
+            <li class="checkbox__item">
+              <input type="checkbox" name="категории" id="checkbox-23" class="checkbox">
+              <span class="checkbox-icon"></span>
+              <label for="checkbox-23" class="label__checkbox" tabindex="0">
+                Учебная литература
+                <span class="checkbox-icon2"></span>
+              </label>
+            </li>
+            <li class="checkbox__item">
+              <input type="checkbox" name="категории" id="checkbox-24" class="checkbox">
+              <span class="checkbox-icon"></span>
+              <label for="checkbox-24" class="label__checkbox" tabindex="0">
+                Журналы и газеты
+                <span class="checkbox-icon2"></span>
+              </label>
+            </li>
+          </ul>
+          <div class="section-editions__price-heading">Цена</div>
+          <div class="section-editions__price-content">
+            <label for="price-from" class="section-editions__price-from">От</label>
+            <input type="number" step="0.01" min="0" placeholder="50" id="price-from__mobile">
+            <label for="price-up-to" class="section-editions__price-up-to">до</label>
+            <input type="number" step="0.01" min="0" placeholder="25 000" id="price-up-to__mobile">
+            <div class="section-editions__price-rub">руб.</div>
           </div>
+        </div>
 
-          <script>
-            function active() {
-              let check = document.querySelector('#checkbox');
-              for(let i = 0; i < check.children.length; ++i) {
-                check.children[i].style.display = "block"
-                document.querySelector('.checkbox-icon-arr').classList.add('checkbox-icon-arr-rotate')
+        <script>
+          function active() {
+            let check = document.querySelector('#checkbox');
+            for(let i = 0; i < check.children.length; ++i) {
+              check.children[i].style.display = "block"
+              document.querySelector('.checkbox-icon-arr').classList.add('checkbox-icon-arr-rotate')
+            }
+          }
+          
+          function hidden() {
+            let check = document.querySelector('#checkbox');
+            for(let i = 0; i < check.children.length; ++i) {
+              if(!check.children[i].firstElementChild.checked) {
+                check.children[i].style.display = "none"
+                document.querySelector('.checkbox-icon-arr').classList.remove('checkbox-icon-arr-rotate')
               }
             }
-            
-            function hidden() {
-              let check = document.querySelector('#checkbox');
-              for(let i = 0; i < check.children.length; ++i) {
-                if(!check.children[i].firstElementChild.checked) {
-                  check.children[i].style.display = "none"
-                  document.querySelector('.checkbox-icon-arr').classList.remove('checkbox-icon-arr-rotate')
-                }
-              }
-            }
-            
-            let count = 1;
-            function but () {
-              count *= -1;
-              if (count > 0) active();
-              else hidden();
-            }
+          }
+          
+          let count = 1;
+          function but () {
+            count *= -1;
+            if (count > 0) active();
+            else hidden();
+          }
 
-            document.querySelectorAll('.checkbox__item').forEach(function(ev){
-              ev.querySelector('.label__checkbox').addEventListener('click', function(event){
-                event.target.querySelector('.checkbox-icon2').classList.toggle('checkbox-icon-cross')
-              ev.querySelector('.checkbox-icon2').addEventListener('click', function(event2){
-                event2.target.classList.remove('checkbox-icon-cross')
-              })
+          document.querySelectorAll('.checkbox__item').forEach(function(ev){
+            ev.querySelector('.label__checkbox').addEventListener('click', function(event){
+              event.target.querySelector('.checkbox-icon2').classList.toggle('checkbox-icon-cross')
+            ev.querySelector('.checkbox-icon2').addEventListener('click', function(event2){
+              event2.target.classList.remove('checkbox-icon-cross')
             })
           })
-          </script>
+        })
+        </script>
 
-          <div class="section-editions__swiper">
-            <div class="swiper-container" id="swip-2">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img src="css/img/swip-2-1.jpg" alt="Картина-1" class="section-editions__img">
-                  <div class="section-editions__item-content">
-                    <div class="section-editions__item-heading">Искусство цвета</div>
-                    <div class="section-editions__item-price">620 руб</div>
-                  </div>
-                  <div class="section-editions__item-author">Иттен, Иохансен</div>
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
-                </div>
-                <div class="swiper-slide">
-                  <img src="css/img/swip-2-2.jpg" alt="Картина-2" class="section-editions__img">
-                  <div class="section-editions__item-content">
-                    <div class="section-editions__item-heading">Типографика</div>
-                    <div class="section-editions__item-price">2 450 руб</div>
-                  </div>
-                  <div class="section-editions__item-author">Рудер, Эмиль</div>
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
-                </div>
-                <div class="swiper-slide">
-                  <img src="css/img/swip-2-3.jpg" alt="Картина-3" class="section-editions__img">
-                  <div class="section-editions__item-content">
-                    <div class="section-editions__item-heading">Книга про буквы</div>
-                    <div class="section-editions__item-price">2 200 руб</div>
-                  </div>
-                  <div class="section-editions__item-author">Гордон, Юрий</div>
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
-                </div>
-                <div class="swiper-slide">
-                  <img src="css/img/swip-2-4.jpg" alt="Картина-4" class="section-editions__img">
-                  <div class="section-editions__item-content">
-                    <div class="section-editions__item-heading">Николай Ильин</div>
-                    <div class="section-editions__item-price">1 100 руб</div>
-                  </div>
-                  <div class="section-editions__item-author">Кричевский, Владимир</div>
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
-                </div>
-                <div class="swiper-slide">
-                  <img src="css/img/swip-2-5.jpg" alt="Картина-5" class="section-editions__img">
-                  <div class="section-editions__item-content">
-                    <div class="section-editions__item-heading">Модульные сет...</div>
-                    <div class="section-editions__item-price">1 450 руб</div>
-                  </div>
-                  <div class="section-editions__item-author">Мюллер-Брокманн, Йозеф</div>
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
-                </div>
-                <div class="swiper-slide">
-                  <img src="css/img/swip-2-6.jpg" alt="Картина-6" class="section-editions__img">
-                  <div class="section-editions__item-content">
-                    <div class="section-editions__item-heading">Эволюция граф...</div>
-                    <div class="section-editions__item-price">3 200 руб</div>
-                  </div>
-                  <div class="section-editions__item-author">Хеллер, Чваст</div>
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
-                </div>
-                <div class="swiper-slide">
-                  <img src="css/img/swip-2-7.jpg" alt="Картина-7" class="section-editions__img">
-                  <div class="section-editions__item-content">
-                    <div class="section-editions__item-heading">Искусство и ви...</div>
-                    <div class="section-editions__item-price">2 220 руб</div>
-                  </div>
-                  <div class="section-editions__item-author">Арнхейм, Рудольф</div>
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
-                </div>
-              </div>
-              <div class="swiper-pagination swiper-pagination-2"></div>
-              <div class="swiper-button-prev swiper-button-prev-2"></div>
-              <div class="swiper-button-next swiper-button-next-2"></div>
-            </div>
-          </div>
-    
-          <script>
-            const swiper4 = new Swiper('#swip-2', {
-              breakpoints: {
-              1025: {
-                slidesPerView: 3,
-                spaceBetween: 50,
-                slidesPerGroup: 3,
-              },
-              769: {
-                slidesPerView: 2,
-                spaceBetween: 50,
-                slidesPerGroup: 2,
-              },
-              1: {
-                slidesPerView: 2,
-                spaceBetween: 34,
-                slidesPerGroup: 2,
-              },
-            },
-              pagination: {
-                el: '.swiper-pagination',
-                type: 'fraction',
-              },
-              navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              },
-            });
-          </script>
-
-          <div class="section-editions__card-mobile">
-            <div class="section-editions__card-row">
-              <div class="section-editions__card">
+        <div class="section-editions__swiper">
+          <div class="swiper-container" id="swip-2">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
                 <img src="css/img/swip-2-1.jpg" alt="Картина-1" class="section-editions__img">
                 <div class="section-editions__item-content">
                   <div class="section-editions__item-heading">Искусство цвета</div>
-                  <div class="section-editions__item-author">Иттен, Иохансен</div>
                   <div class="section-editions__item-price">620 руб</div>
                 </div>
-                <a href="" class="section-editions__item-link">Заказать</a>
+                <div class="section-editions__item-author">Иттен, Иохансен</div>
+                <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
               </div>
-
-              <div class="section-editions__card">
+              <div class="swiper-slide">
                 <img src="css/img/swip-2-2.jpg" alt="Картина-2" class="section-editions__img">
                 <div class="section-editions__item-content">
                   <div class="section-editions__item-heading">Типографика</div>
-                  <div class="section-editions__item-author">Рудер, Эмиль</div>
                   <div class="section-editions__item-price">2 450 руб</div>
                 </div>
-                <a href="" class="section-editions__item-link">Заказать</a>
+                <div class="section-editions__item-author">Рудер, Эмиль</div>
+                <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
               </div>
-            </div>
-
-            <div class="section-editions__card-row">
-              <div class="section-editions__card">
+              <div class="swiper-slide">
                 <img src="css/img/swip-2-3.jpg" alt="Картина-3" class="section-editions__img">
                 <div class="section-editions__item-content">
                   <div class="section-editions__item-heading">Книга про буквы</div>
-                  <div class="section-editions__item-author">Гордон, Юрий</div>
                   <div class="section-editions__item-price">2 200 руб</div>
                 </div>
-                <a href="" class="section-editions__item-link">Заказать</a>
+                <div class="section-editions__item-author">Гордон, Юрий</div>
+                <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
               </div>
-
-              <div class="section-editions__card">
+              <div class="swiper-slide">
                 <img src="css/img/swip-2-4.jpg" alt="Картина-4" class="section-editions__img">
                 <div class="section-editions__item-content">
                   <div class="section-editions__item-heading">Николай Ильин</div>
-                  <div class="section-editions__item-author">Кричевский, Влади...</div>
                   <div class="section-editions__item-price">1 100 руб</div>
                 </div>
-                <a href="" class="section-editions__item-link">Заказать</a>
+                <div class="section-editions__item-author">Кричевский, Владимир</div>
+                <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
               </div>
-            </div>
-
-            <div class="section-editions__card-row">
-              <div class="section-editions__card">
+              <div class="swiper-slide">
                 <img src="css/img/swip-2-5.jpg" alt="Картина-5" class="section-editions__img">
                 <div class="section-editions__item-content">
-                  <div class="section-editions__item-heading">Модульные сетки...</div>
-                  <div class="section-editions__item-author">Мюллер-Брокманн...</div>
+                  <div class="section-editions__item-heading">Модульные сет...</div>
                   <div class="section-editions__item-price">1 450 руб</div>
                 </div>
-                <a href="" class="section-editions__item-link">Заказать</a>
+                <div class="section-editions__item-author">Мюллер-Брокманн, Йозеф</div>
+                <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
               </div>
-                
-              <div class="section-editions__card">
+              <div class="swiper-slide">
                 <img src="css/img/swip-2-6.jpg" alt="Картина-6" class="section-editions__img">
                 <div class="section-editions__item-content">
-                  <div class="section-editions__item-heading">Эволюция графич...</div>
-                  <div class="section-editions__item-author">Хеллер, Чваст</div>
+                  <div class="section-editions__item-heading">Эволюция граф...</div>
                   <div class="section-editions__item-price">3 200 руб</div>
                 </div>
-                <a href="" class="section-editions__item-link">Заказать</a>
+                <div class="section-editions__item-author">Хеллер, Чваст</div>
+                <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+              </div>
+              <div class="swiper-slide">
+                <img src="css/img/swip-2-7.jpg" alt="Картина-7" class="section-editions__img">
+                <div class="section-editions__item-content">
+                  <div class="section-editions__item-heading">Искусство и ви...</div>
+                  <div class="section-editions__item-price">2 220 руб</div>
+                </div>
+                <div class="section-editions__item-author">Арнхейм, Рудольф</div>
+                <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
               </div>
             </div>
+            <div class="swiper-pagination swiper-pagination-2"></div>
+            <div class="swiper-button-prev swiper-button-prev-2"></div>
+            <div class="swiper-button-next swiper-button-next-2"></div>
+          </div>
+        </div>
+  
+        <script>
+          const swiper4 = new Swiper('#swip-2', {
+            breakpoints: {
+            1025: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+              slidesPerGroup: 3,
+            },
+            769: {
+              slidesPerView: 2,
+              spaceBetween: 50,
+              slidesPerGroup: 2,
+            },
+            1: {
+              slidesPerView: 2,
+              spaceBetween: 34,
+              slidesPerGroup: 2,
+            },
+          },
+            pagination: {
+              el: '.swiper-pagination',
+              type: 'fraction',
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+          });
+        </script>
 
+        <div class="section-editions__card-mobile">
+          <div class="section-editions__card-row">
             <div class="section-editions__card">
-              <img src="css/img/swip-2-7.jpg" alt="Картина-7" class="section-editions__img">
+              <img src="css/img/swip-2-1.jpg" alt="Картина-1" class="section-editions__img">
               <div class="section-editions__item-content">
-                <div class="section-editions__item-heading">Искусство и визуа...</div>
-                <div class="section-editions__item-author">Арнхейм, Рудольф</div>
-                <div class="section-editions__item-price">2 220 руб</div>
+                <div class="section-editions__item-heading">Искусство цвета</div>
+                <div class="section-editions__item-author">Иттен, Иохансен</div>
+                <div class="section-editions__item-price">620 руб</div>
               </div>
               <a href="" class="section-editions__item-link">Заказать</a>
             </div>
+
+            <div class="section-editions__card">
+              <img src="css/img/swip-2-2.jpg" alt="Картина-2" class="section-editions__img">
+              <div class="section-editions__item-content">
+                <div class="section-editions__item-heading">Типографика</div>
+                <div class="section-editions__item-author">Рудер, Эмиль</div>
+                <div class="section-editions__item-price">2 450 руб</div>
+              </div>
+              <a href="" class="section-editions__item-link">Заказать</a>
+            </div>
+          </div>
+
+          <div class="section-editions__card-row">
+            <div class="section-editions__card">
+              <img src="css/img/swip-2-3.jpg" alt="Картина-3" class="section-editions__img">
+              <div class="section-editions__item-content">
+                <div class="section-editions__item-heading">Книга про буквы</div>
+                <div class="section-editions__item-author">Гордон, Юрий</div>
+                <div class="section-editions__item-price">2 200 руб</div>
+              </div>
+              <a href="" class="section-editions__item-link">Заказать</a>
+            </div>
+
+            <div class="section-editions__card">
+              <img src="css/img/swip-2-4.jpg" alt="Картина-4" class="section-editions__img">
+              <div class="section-editions__item-content">
+                <div class="section-editions__item-heading">Николай Ильин</div>
+                <div class="section-editions__item-author">Кричевский, Влади...</div>
+                <div class="section-editions__item-price">1 100 руб</div>
+              </div>
+              <a href="" class="section-editions__item-link">Заказать</a>
+            </div>
+          </div>
+
+          <div class="section-editions__card-row">
+            <div class="section-editions__card">
+              <img src="css/img/swip-2-5.jpg" alt="Картина-5" class="section-editions__img">
+              <div class="section-editions__item-content">
+                <div class="section-editions__item-heading">Модульные сетки...</div>
+                <div class="section-editions__item-author">Мюллер-Брокманн...</div>
+                <div class="section-editions__item-price">1 450 руб</div>
+              </div>
+              <a href="" class="section-editions__item-link">Заказать</a>
+            </div>
+              
+            <div class="section-editions__card">
+              <img src="css/img/swip-2-6.jpg" alt="Картина-6" class="section-editions__img">
+              <div class="section-editions__item-content">
+                <div class="section-editions__item-heading">Эволюция графич...</div>
+                <div class="section-editions__item-author">Хеллер, Чваст</div>
+                <div class="section-editions__item-price">3 200 руб</div>
+              </div>
+              <a href="" class="section-editions__item-link">Заказать</a>
+            </div>
+          </div>
+
+          <div class="section-editions__card">
+            <img src="css/img/swip-2-7.jpg" alt="Картина-7" class="section-editions__img">
+            <div class="section-editions__item-content">
+              <div class="section-editions__item-heading">Искусство и визуа...</div>
+              <div class="section-editions__item-author">Арнхейм, Рудольф</div>
+              <div class="section-editions__item-price">2 220 руб</div>
+            </div>
+            <a href="" class="section-editions__item-link">Заказать</a>
           </div>
         </div>
       </div>
@@ -2003,7 +1991,7 @@
     </section>
 
     <section class="section-contacts" id="contacts">
-      <div class="container section-contacts__container">
+      <div class="section-contacts__container">
         <h2 class="section-contacts__heading">Контакты</h2>
         <div  class="section-contacts__contant">
           <div class="section-contacts__left">
