@@ -1,0 +1,80 @@
+.tooltip {
+  position: relative;
+}
+
+.section-projects__tooltip-text {
+  display: inline;
+  line-height: 32px;
+}
+
+.marker {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url("../img/svg/tooltip-norm.svg");
+  cursor: pointer;
+}
+
+.marker:focus,
+.marker:hover {
+  background-image: url("../img/svg/tooltip-focus.svg");
+}
+
+.marker:active {
+  background-image: url("../img/svg/tooltip-active.svg");
+}
+
+.popup {
+  position: absolute;
+  bottom: 150%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 11px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--color-white);
+  background-color: #CACACA;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  z-index: 0;
+}
+
+.popup-1 {
+  width: 264px;
+}
+
+.popup-2 {
+  width: 264px;
+}
+
+.popup-3 {
+  width: 232px;
+}
+
+.popup-triangle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #CACACA;
+  transform: rotate(45deg);
+}
+
+.popup-triangle1 {
+  top: 48px;
+}
+
+.popup-triangle2 {
+  top: 64px;
+}
+
+.popup-triangle3 {
+  top: 33px;
+}
+
+.opacityPopup {
+  z-index: 10;
+  opacity: 1;
+}

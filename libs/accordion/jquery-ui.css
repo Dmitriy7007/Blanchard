@@ -15,8 +15,6 @@
 	font-size: 24px;
 	line-height: 32px;
 	transition: color .3s ease-in-out, border-color .3s ease-in-out;
-
-	
 }
 
 .ui-accordion .ui-accordion-content {

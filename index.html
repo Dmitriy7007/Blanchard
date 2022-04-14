@@ -11,14 +11,27 @@
   <link rel="stylesheet" href="libs/simplebar-master/simplebar-master/packages/simplebar/src/simplebar.css">
   <link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css">
   <link rel="stylesheet" href="libs/accordion/jquery-ui.css">
-  <link rel="stylesheet" href="css/modal.css">
-  <script src="libs/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="css/swiper.css">
+  <link rel="stylesheet" href="css/choices.css">
+  <link rel="stylesheet" href="css/accordion.css">
+  <link rel="stylesheet" href="css/popup.css">
+  <link rel="stylesheet" href="css/checkbox.css">
+  <link rel="stylesheet" href="css/burger.css">
+  <link rel="stylesheet" href="css/css.css">
+
+  <script src="libs/swiper/swiper-bundle.min.js" defer></script>
+  <script src="js/swiper.js" defer></script>
+
+  <script src="libs/Choices-master/public/assets/scripts/choices.min.js"></script>
+  <script src="js/select.js" defer></script>
+
   <script src="libs/simplebar-master/simplebar-master/simplebar.min.js"></script>
   <script src="js/jquery-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="libs/Inputmask-5.x/Inputmask-5.x/dist/inputmask.min.js"></script>
   <script src="libs/Just-validate-master/Just-validate-master/dist/js/just-validate.min.js"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU"></script>
   <script src="js/tabs.js" defer></script>
   <script src="js/btn-hidden.js" defer></script>
   <script src="js/anchor.js" defer></script>
@@ -26,20 +39,28 @@
   <script src="js/burger.js" defer></script>
   <script src="js/modal.js"></script>
   <script src="js/popup.js" defer></script>
-  <link rel="stylesheet" href="css/css.css">
+  <script src="js/accordion.js" defer></script>
+  <script src="js/checkbox.js" defer></script>
+  <script src="js/validate.js" defer></script>
+  <script src="js/ymap.js" defer></script>
+  <script src="js/img-active-projects.js" defer></script>
+  
 </head>
 <body>
+
+  <!-- header -->
+
   <header class="header">
-    <div class="header-menu">
-      <div class="header-menu__container container">
-
-        <!-- menu -->
-
-        <a href="" class="menu-logo">
-          <img src="img/logo.png" alt="Логотип Blanchard" class="menu-logo__img">
+    <div class="menu">
+      <div class="menu__container container">
+        <button class="burger" aria-label="Открыть меню" aria-expanded="false">
+          <span class="burger__line"></span>
+        </button>
+        <a href="" class="menu__logo logo" tabindex="-1">
+          <img src="img/logo.png" alt="Логотип Blanchard" class="logo__img">
         </a>
         <nav class="menu-nav" id="menu">
-          <ul class="menu-nav__list">
+          <ul class="menu-nav__list list-reset">
             <li class="menu-nav__item">
               <a href="#info" class="menu-nav__link">О нас</a>
             </li>
@@ -62,23 +83,26 @@
               <a href="#contacts" class="menu-nav__link">Контакты</a>
             </li>
           </ul>
-          <div class="menu-nav__entrance">
-            <a href="#" class="menu-user__link">Войти</a>
+          <div>
+            <a href="#" class="menu-user">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.12056 9.09278L6.13889 10.1111L9.75 6.5L6.13889 2.88889L5.12056 3.90722L6.98389 5.77778H0V7.22222H6.98389L5.12056 9.09278ZM11.5556 0H1.44444C0.642778 0 0 0.65 0 1.44444V4.33333H1.44444V1.44444H11.5556V11.5556H1.44444V8.66667H0V11.5556C0 12.35 0.642778 13 1.44444 13H11.5556C12.35 13 13 12.35 13 11.5556V1.44444C13 0.65 12.35 0 11.5556 0Z" fill="white"/>
+              </svg>
+              Войти
+            </a>
           </div>
         </nav>
-        <a href="#" id="burger" class="burger"></a>
+        <button aria-label="Выполнить поиск" type="submit" class="search__btn search__btn-modal"></button>
       </div>
     </div>
 
-    <!-- lowermenu -->
-
-    <div class="header-lowermenu" id="lowermenu">
-      <div class="header-lowermenu__container container">
-        <ul class="lowermenu list-reset">
+    <div class="lowermenu" id="lowermenu">
+      <div class="lowermenu__container container">
+        <ul class="lowermenu__list list-reset">
           <li class="lowermenu__item">
             <button class="lowermenu__btn">Реализм</button>
-            <div class="dropdown" data-simplebar>
-              <ul class="dropdown__list list-reset">
+            <div class="dropdown">
+              <ul class="dropdown__list list-reset" data-simplebar>
                 <li class="dropdown__item dropdown__item-1"><a href="#" class="dropdown__link">Тинторетто</a></li>
                 <li class="dropdown__item dropdown__item-2"><a href="#" class="dropdown__link">Фридрих</a></li>
                 <li class="dropdown__item dropdown__item-3"><a href="#" class="dropdown__link">Леонардо</a></li>
@@ -91,8 +115,8 @@
 
           <li class="lowermenu__item">
             <button class="lowermenu__btn">Импрессионизм</button>
-            <div class="dropdown" data-simplebar>
-              <ul class="dropdown__list list-reset">
+            <div class="dropdown">
+              <ul class="dropdown__list list-reset" data-simplebar>
                 <li class="dropdown__item dropdown__item-1"><a href="#" class="dropdown__link">Тинторетто</a></li>
                 <li class="dropdown__item dropdown__item-2"><a href="#" class="dropdown__link">Фридрих</a></li>
                 <li class="dropdown__item dropdown__item-3"><a href="#" class="dropdown__link">Леонардо</a></li>
@@ -105,8 +129,8 @@
 
           <li class="lowermenu__item">
             <button class="lowermenu__btn">Постимпрессионизм</button>
-            <div class="dropdown" data-simplebar>
-              <ul class="dropdown__list list-reset">
+            <div class="dropdown">
+              <ul class="dropdown__list list-reset" data-simplebar>
                 <li class="dropdown__item dropdown__item-1"><a href="#" class="dropdown__link">Тинторетто</a></li>
                 <li class="dropdown__item dropdown__item-2"><a href="#" class="dropdown__link">Фридрих</a></li>
                 <li class="dropdown__item dropdown__item-3"><a href="#" class="dropdown__link">Леонардо</a></li>
@@ -119,8 +143,8 @@
 
           <li class="lowermenu__item">
             <button class="lowermenu__btn">Авангард</button>
-            <div class="dropdown" data-simplebar>
-              <ul class="dropdown__list list-reset">
+            <div class="dropdown">
+              <ul class="dropdown__list list-reset" data-simplebar>
                 <li class="dropdown__item dropdown__item-1"><a href="#" class="dropdown__link">Тинторетто</a></li>
                 <li class="dropdown__item dropdown__item-2"><a href="#" class="dropdown__link">Фридрих</a></li>
                 <li class="dropdown__item dropdown__item-3"><a href="#" class="dropdown__link">Леонардо</a></li>
@@ -133,8 +157,8 @@
 
           <li class="lowermenu__item">
             <button class="lowermenu__btn">Футуризм</button>
-            <div class="dropdown" data-simplebar>
-              <ul class="dropdown__list list-reset">
+            <div class="dropdown">
+              <ul class="dropdown__list list-reset" data-simplebar>
                 <li class="dropdown__item dropdown__item-1"><a href="#" class="dropdown__link">Тинторетто</a></li>
                 <li class="dropdown__item dropdown__item-2"><a href="#" class="dropdown__link">Фридрих</a></li>
                 <li class="dropdown__item dropdown__item-3"><a href="#" class="dropdown__link">Леонардо</a></li>
@@ -145,97 +169,71 @@
             </div>
           </li>
         </ul>
-
-        <!-- search-form -->
-
-        <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="lowermenu__search-form">
-          <button aria-label="Кнопка поиска" type="submit" class="lowermenu__search-btn"></button>
-          <input type="search" class="lowermenu__search" name="поиск по сайту" autocomplete="off" placeholder="Поиск по сайту">
+        <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="search">
+          <button aria-label="Выполнить поиск" type="submit" class="search__btn"></button>
+          <input type="search" class="search__input" name="поиск по сайту" autocomplete="off" placeholder="Поиск по сайту">
         </form>
-
       </div>  
     </div>
   </header>
 
-  <section class="section-hero" id="hero">
-    <div class="section-hero__container container">
-      <div class="section-hero__content">
-        <p class="section-hero__name">Прикоснитесь к прекрасному</p>
-        <p class="section-hero__descr">Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
-        <a href="#contacts" class="section-hero__btn">Подписаться на рассылку</a> 
-      </div>
-    </div>
-    
-    <div class="swiper-container swip-7" id="swip-7">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="section-hero__background section-hero__background_1"></div>
-        </div>
-        <div class="swiper-slide">
-          <div class="section-hero__background section-hero__background_2"></div>
-        </div>
-        <div class="swiper-slide">
-          <div class="section-hero__background section-hero__background_3"></div>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <script>
-    const swiper7 = new Swiper('#swip-7', {
-      loop: true,
-      autoplay: {
-        delay: 4000,
-      },
-      speed: 1000,
-    });
-  </script>
-
   <main>
+
+    <!-- section-hero -->
+
+    <section class="section-hero" id="hero">
+      <div class="section-hero__container container">
+        <div class="section-hero__content">
+          <h1 class="section-hero__name">Прикоснитесь к прекрасному</h1>
+          <p class="section-hero__descr">Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.</p>
+          <a href="#contacts" class="section-hero__btn">Подписаться на рассылку</a> 
+        </div>
+      </div>
+      
+      <div class="swiper-container swip-hero" id="swip-hero">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="section-hero__background section-hero__background_1"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="section-hero__background section-hero__background_2"></div>
+          </div>
+          <div class="swiper-slide">
+            <div class="section-hero__background section-hero__background_3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- section-info -->
+  
     <section class="section-info" id="info">
       <div class="container section-info__container">
-        <h2 class="section-info__heading">
-          О нас
-        </h2>
+        <h2 class="section-info__heading">О нас</h2>
         <p class="section-info__descr">
           Ясность нашей позиции очевидна: семантический разбор внешних противодействий однозначно определяет каждого участника как способного принимать собственные решения касаемо распределения внутренних резервов и ресурсов. Не следует, однако, забывать, что высококачественный прототип будущего проекта влечет за собой процесс внедрения и модернизации модели развития. Повседневная практика показывает, что высокое качество позиционных исследований создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса распределения внутренних резервов и ресурсов. В рамках спецификации современных стандартов, действия представителей оппозиции набирают популярность среди определенных слоев населения, а значит, должны быть разоблачены.
         </p>
       </div>
     </section>
 
+    <!-- section-gallery -->
+
     <section class="section-gallery" id="gallery">
       <div class="section-gallery__container container">
-        <div class="section-gallery_left">
+        <div class="section-gallery__filter">
           <h2 class="section-gallery__heading">Галерея</h2>
           <div class="section-gallery__select-descr">Фильтр:</div>
-
-          <!-- gallery-select -->
-
-            <select size="1" class="select-gallery" name="gallery" id="selectCustom" onchange="showSingleDiv(this.value)">
-              <option class="select-gallery__link" selected value="#swip-1-1">Живопись</option>
-              <option class="select-gallery__link" value="#swip-1-2">Рисунок</option>
-              <option class="select-gallery__link" value="#swip-1-3">Скульптура</option>
+            <select size="1" class="select-gallery" name="gallery" id="selectCustom" onchange="showSingleOption(this.value)">
+              <option class="select-gallery__link" selected value="#swip-gallery-1">Живопись</option>
+              <option class="select-gallery__link" value="#swip-gallery-2">Рисунок</option>
+              <option class="select-gallery__link" value="#swip-gallery-3">Скульптура</option>
             </select>
-
-          <div class="section-gallery__note">Вам предоставляется 10 бесплатных скачиваний. Для увеличения количества скачиваний <a href="#" class="section-gallery__note-link" aria-label="Кнопка">авторизуйтесь,</a> либо воспользуйтесь лицензией.</div>
+          <div class="section-gallery__note">Вам предоставляется 10 бесплатных скачиваний. Для увеличения количества скачиваний <a href="#" class="section-gallery__note-link link" aria-label="выполнить действие">авторизуйтесь,</a> либо воспользуйтесь лицензией.</div>
         </div>
 
-        <script src="libs/Choices-master/public/assets/scripts/choices.min.js"></script>
-        <script>
-          const select = document.querySelector('#selectCustom');
-          const choices = new Choices(select, {
-            searchEnabled: false,
-            itemSelectText:'',
-            shouldSort: false,
-          })
-        </script>
-
-        <!-- gallery-swiper -->
-
         <div class="section-gallery__swiper">
-          <div class="swiper-container single active swip-1-1" id="swip-1-1">
-            <div class="swiper-wrapper img__items">
+          <div class="swiper-container active swip-gallery" id="swip-gallery-1">
+            <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <img src="img/swip-1-1-1.jpg" alt="слайд-1" class="section-gallery__img" data-description="Здесь содержится описание картины" data-name="Картина-1">
                 <div class="img-fon"></div>
@@ -290,8 +288,8 @@
             <div class="swiper-button-next swiper-button-next-1"></div>
           </div>
 
-          <div class="swiper-container single swip-1-2" id="swip-1-2">
-            <div class="swiper-wrapper img__items">
+          <div class="swiper-container swip-gallery" id="swip-gallery-2">
+            <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <img src="img/swip-1-2-1.jpg" alt="Картина-1" class="section-gallery__img" data-description="Здесь содержится описание картины" data-name="Картина-1">
                 <div class="img-fon"></div>
@@ -322,8 +320,8 @@
             <div class="swiper-button-next swiper-button-next-1"></div>
           </div>
 
-          <div class="swiper-container single swip-1-3" id="swip-1-3">
-            <div class="swiper-wrapper img__items">
+          <div class="swiper-container swip-gallery" id="swip-gallery-3">
+            <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <img src="img/swip-1-3-1.jpg" alt="Скульптура-1" class="section-gallery__img" data-description="Здесь содержится описание скульптуры" data-name="Скульптура-1">
                 <div class="img-fon"></div>
@@ -354,479 +352,161 @@
             <div class="swiper-button-next swiper-button-next-1"></div>
           </div>
         </div>
-
-        <script>
-          (function () {
-            let elemTarget;
-            let modal = $modal({
-              title: 'Подробная информация',
-              content: '<img src="" alt="" style="display: block; height: auto; max-width: 100%;">',
-            });
-            document.addEventListener('click', function (e) {
-              if (e.target.matches('.img__items .swiper-slide')) {
-                elemTarget = e.target;
-                modal.setContent('<div style="flex: 1 0 60%;"><img src="' + e.target.childNodes[1].src + '" style="display: block; height: auto; width: 150%; margin: 0 auto;"></div><div style="flex: 1 0 40%;"><div style="font-size: 18px; font-weight:bold;">' + e.target.childNodes[1].dataset.name + '</div>Описание:<br>' + e.target.childNodes[1].dataset.description + '</div>');
-                modal.show();
-              } else if (e.target.dataset.handler === 'modalHandlerCancel') {
-                modal.hide();
-              } 
-            });
-          })();
-        </script>
-  
-        <script>
-          const breacpoints = {
-            breakpoints: {
-              1025: {
-                slidesPerView: 3,
-                spaceBetween: 50,
-                slidesPerGroup: 3,
-                slidesPerColumn: 2,
-                slidesPerColumnFill: 'column',
-              },
-              321: {
-                slidesPerView: 2,
-                spaceBetween: 34,
-                slidesPerGroup: 2,
-                slidesPerColumn: 2,
-                slidesPerColumnFill: 'column',
-              },
-              1: {
-                slidesPerView: 1,
-                spaceBetween: 0,
-                slidesPerGroup: 1,
-                slidesPerColumn: 1,
-                slidesPerColumnFill: 'row',
-              },
-            },
-            pagination: {
-              el: '.swiper-pagination',
-              type: 'fraction',
-            },
-            navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            },
-          }
-
-          const swiper1 = new Swiper('#swip-1-1', breacpoints);
-
-          const swiper2 = new Swiper('#swip-1-2', breacpoints);
-
-          const swiper3 = new Swiper('#swip-1-3', breacpoints);
-        </script>
-
-        <script>
-          function showSingleDiv(sel) {
-            const prevBlockEl = document.querySelector('.single.active'),
-            currBlockEl = document.querySelector(sel);
-            if (!currBlockEl || prevBlockEl === currBlockEl) return;
-            prevBlockEl && prevBlockEl.classList.remove('active');
-            currBlockEl.classList.add('active');
-            swiper1.update ();
-            swiper2.update ();
-            swiper3.update ()
-          }
-        </script>
-
       </div>
     </section>
+
+    <!-- section-catalog -->
 
     <section class="section-catalog" id="catalog">
       <div class="section-catalog__container container">
         <div class="section-catalog__header">
           <h2 class="section-catalog__heading">Каталог</h2>
-
-          <!-- catalog__tabs -->
-
-          <ul class="section-catalog__tabs-list">
+          <ul class="section-catalog__list tabs list-reset">
             <li class="tabs__item">
-              <button class="section-catalog-link tabs__btn" data-path="one" aria-label="Кнопка выбора языка (французский)">
-                <img src="img/image1.png" alt="" class="tabs-img">
-              </button>
+              <button class="section-catalog-btn-outline tabs__btn" data-path="one" aria-label="выбрать французский язык"></button>
             </li>
             <li class="tabs__item">
-              <button class="section-catalog-link tabs__btn" data-path="two" aria-label="Кнопка выбора языка (немецкий)">
-                <img src="img/image2.png" alt="" class="tabs-img">
-              </button>
+              <button class="tabs__btn" data-path="two" aria-label="выбрать немецкий язык"></button>
             </li>
             <li class="tabs__item">
-              <button class="section-catalog-link tabs__btn" data-path="three" aria-label="Кнопка выбора языка (итальянский)">
-                <img src="img/image3.png" alt="" class="tabs-img">
-              </button>
+              <button class="tabs__btn" data-path="three" aria-label="выбрать итальянский язык"></button>
             </li>
             <li class="tabs__item">
-              <button class="section-catalog-link tabs__btn" data-path="four" aria-label="Кнопка выбора языка (русский)">
-                <img src="img/image4.png" alt="" class="tabs-img">
-              </button>
+              <button class="tabs__btn" data-path="four" aria-label="выбрать русский языка"></button>
             </li>
             <li class="tabs__item">
-              <button class="section-catalog-link tabs__btn section-catalog__last-link" data-path="five" aria-label="Кнопка выбора языка (бельгийский)">
-                <img src="img/image5.png" alt="" class="tabs-img">
-              </button>
+              <button class="tabs__btn" data-path="five" aria-label="выбрать бельгийский языка"></button>
             </li>
           </ul>
         </div>
 
         <!-- catalog__tab_1-content -->
         
-        <div class="tab-content tab-content-active" data-target="one">
+        <div class="section-catalog__tab-content tab-content-active" data-target="one">
           <p class="section-catalog__content">Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы.</p>
           <div class="section-catalog__content-position">
-            <div class="tab-cont" data-target="1">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="2">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>  
-            <div class="tab-cont" data-target="3">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="4">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="5">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="6">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="7">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="8">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="9">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="10">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="11">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont tab-cont-active" data-target="12">
-              <div class="section-catalog_left">
-                <img src="img/Girlando.jpg" alt="" class="section-catalog__img">
-                <h3 class="section-catalog__img-heading">Доменико Гирландайо</h3>
-                <p class="section-catalog__img-descr">
-                  <span class="section-catalog__img-data">2 июня 1448 — 11 января 1494.</span> <br>
-                  Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).
-                </p>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="13">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="14">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="15">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="16">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="17">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="18">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="19">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="20">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="21">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="22">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="23">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
-            </div>
-            <div class="tab-cont" data-target="24">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
-              </div>
+            <div class="section-catalog__content-left">
+              <img src="img/Girlando.jpg" alt="" class="section-catalog__img">
+              <h3 class="section-catalog__img-heading">Доменико Гирландайо</h3>
+              <p class="section-catalog__img-descr">
+                <span class="section-catalog__img-data">2 июня 1448 — 11 января 1494.</span> <br>
+                Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).
+              </p>
             </div>
 
             <!-- accordion -->
   
-            <div class="section-catalog_right">
+            <div class="section-catalog__content-right">
               <div class="accordion">
-                <h3 class="ui-accordion-1" tabindex="0">
+                <h3 class="ui-accordion" tabindex="0">
                   <span class="ui-accordion__header-wrapper">C 1400 по 1499 гг.</span>
                 </h3>
                 <div class="ui-accordion-heading">
-                  <div class="section-catalog__accordion-content">
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="1">Бенедетто ди Биндо</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="2">Бергоньоне, Амброджо</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="3">Биссоло, Франческо</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="4">Больтраффио, Джованни</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="5">Бонсиньори, Франческо</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="6">Боттичини, Рафаэлло</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="7">Брамантино</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="8">Бреа, Людовико</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="9">Бьяджо д’Антонио Туччи</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="10">Веккьетта</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="11">Андреа Верроккьо</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="12">Доменико Гирландайо</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="13">Беноццо Гоццоли</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="14">Граначчи, Франческо</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="15">Грегорио ди Чекко</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="16">Джованни да Удине</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="17">Джованни ди Паоло</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="18">Джорджоне</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="19">Парентино, Бернардо</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="20">Пезеллино</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="21">Пьетро Перуджино</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="22">Перуцци, Бальдассаре</a>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="23">Пизанелло</a><br>
-                    <a class="section-catalog_accordion-btn tabs__button" tabindex="0" data-path="24">Пинтуриккьо</a>
+                  <div class="accordion-content">
+                    <button class="accordion-content__btn" tabindex="0"><span>Бенедетто ди Биндо</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Бергоньоне, Амброджо</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Биссоло, Франческо</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Больтраффио, Джованни</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Бонсиньори, Франческо</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Боттичини, Рафаэлло</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Брамантино</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Бреа, Людовико</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Бьяджо д’Антонио Туччи</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Веккьетта</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Андреа Верроккьо</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span class="accordion-content__btn-active">Доменико Гирландайо</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Беноццо Гоццоли</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Граначчи, Франческо</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Грегорио ди Чекко</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Джованни да Удине</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Джованни ди Паоло</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Джорджоне</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Парентино, Бернардо</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Пезеллино</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Пьетро Перуджино</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Перуцци, Бальдассаре</span></button>
+                    <button class="accordion-content__btn" tabindex="0"><span>Пизанелло</span></button><br>
+                    <button class="accordion-content__btn" tabindex="0"><span>Пинтуриккьо</span></button>
                     <br class="br">
                     <br class="br"> 
                     <br class="br"> 
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">
+                <h3 class="ui-accordion" tabindex="0">
                   <span class="ui-accordion__header-wrapper">C 1500 по 1599 гг.</span>
                 </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">
+                <h3 class="ui-accordion" tabindex="0">
                   <span class="ui-accordion__header-wrapper">C 1600 по 1699 гг.</span>
                 </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">
+                <h3 class="ui-accordion" tabindex="0">
                   <span class="ui-accordion__header-wrapper">C 1700 по 1799 гг.</span>
                 </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">
+                <h3 class="ui-accordion" tabindex="0">
                   <span class="ui-accordion__header-wrapper">C 1800 по 1899 гг.</span>
                 </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">
+                <h3 class="ui-accordion" tabindex="0">
                   <span class="ui-accordion__header-wrapper">C 1900 по 1999 гг.</span>
                 </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">
+                <h3 class="ui-accordion" tabindex="0">
                   <span class="ui-accordion__header-wrapper">C 2000 г.</span>
                 </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
@@ -837,98 +517,110 @@
 
         <!-- catalog__tab_2-content -->
 
-        <div class="tab-content" data-target="two">
+        <div class="section-catalog__tab-content" data-target="two">
           <p class="section-catalog__content">Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы (Немецкий).</p>
           <div class="section-catalog__content-position">
-            <div class="tab-cont-active">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
+            <div class="section-catalog__content-left catalog-empty">
+              <img src="img/catalog-X.png" alt="" class="catalog-empty__img section-catalog__img">
+              <div class="catalog-empty__content">
+                <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
+                <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
+                <a href="#" class="catalog-empty__content-link link">В галерею</a>
               </div>
             </div>
 
             <!-- accordion -->
   
-            <div class="section-catalog_right">
+            <div class="section-catalog__content-right">
               <div class="accordion">
-                <h3 class="ui-accordion-1" tabindex="0">C 1400 по 1499 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1400 по 1499 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading">
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1500 по 1599 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1500 по 1599 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1600 по 1699 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1600 по 1699 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1700 по 1799 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1700 по 1799 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1800 по 1899 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1800 по 1899 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1900 по 1999 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1900 по 1999 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 2000 г.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 2000 г.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
@@ -939,98 +631,110 @@
 
         <!-- catalog__tab_3-content -->
 
-        <div class="tab-content" data-target="three">
+        <div class="section-catalog__tab-content" data-target="three">
           <p class="section-catalog__content">Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы (Итальянский).</p>
           <div class="section-catalog__content-position">
-            <div class="tab-cont-active">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
+            <div class="section-catalog__content-left catalog-empty">
+              <img src="img/catalog-X.png" alt="" class="catalog-empty__img section-catalog__img">
+              <div class="catalog-empty__content">
+                <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
+                <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
+                <a href="#" class="catalog-empty__content-link link">В галерею</a>
               </div>
             </div>
 
             <!-- accordion -->
   
-            <div class="section-catalog_right">
+            <div class="section-catalog__content-right">
               <div class="accordion">
-                <h3 class="ui-accordion-1" tabindex="0">C 1400 по 1499 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1400 по 1499 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading">
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1500 по 1599 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1500 по 1599 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1600 по 1699 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1600 по 1699 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1700 по 1799 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1700 по 1799 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1800 по 1899 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1800 по 1899 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1900 по 1999 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1900 по 1999 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 2000 г.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 2000 г.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
@@ -1041,98 +745,110 @@
 
         <!-- catalog__tab_4-content -->
 
-        <div class="tab-content" data-target="four">
+        <div class="section-catalog__tab-content" data-target="four">
           <p class="section-catalog__content">Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы (Русский).</p>
           <div class="section-catalog__content-position">
-            <div class="tab-cont-active">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
+            <div class="section-catalog__content-left catalog-empty">
+              <img src="img/catalog-X.png" alt="" class="catalog-empty__img section-catalog__img">
+              <div class="catalog-empty__content">
+                <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
+                <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
+                <a href="#" class="catalog-empty__content-link link">В галерею</a>
               </div>
             </div>
 
             <!-- accordion -->
   
-            <div class="section-catalog_right">
+            <div class="section-catalog__content-right">
               <div class="accordion">
-                <h3 class="ui-accordion-1" tabindex="0">C 1400 по 1499 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1400 по 1499 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading">
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1500 по 1599 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1500 по 1599 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1600 по 1699 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1600 по 1699 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1700 по 1799 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1700 по 1799 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1800 по 1899 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1800 по 1899 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1900 по 1999 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1900 по 1999 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 2000 г.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 2000 г.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
@@ -1143,98 +859,110 @@
 
         <!-- catalog__tab_5-content -->
 
-        <div class="tab-content" data-target="five">
+        <div class="section-catalog__tab-content" data-target="five">
           <p class="section-catalog__content">Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы (Бельгийский).</p>
           <div class="section-catalog__content-position">
-            <div class="tab-cont-active">
-              <div class="section-catalog_left">
-                <img src="img/catalog-X.png" alt="" class="section-catalog__img">
-                <div class="catalog-empty__content">
-                  <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
-                  <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
-                  <a href="#" class="catalog-empty__content-link">В галерею</a>
-                </div>
+            <div class="section-catalog__content-left catalog-empty">
+              <img src="img/catalog-X.png" alt="" class="catalog-empty__img section-catalog__img">
+              <div class="catalog-empty__content">
+                <h3 class="catalog-empty__content-heading">Что мы о нём знаем?</h3>
+                <div class="catalog-empty__content-text-artist">Пока ничего... Зато мы точно знаем, что в галерее есть на что посмотреть!</div>
+                <a href="#" class="catalog-empty__content-link link">В галерею</a>
               </div>
             </div>
 
             <!-- accordion -->
   
-            <div class="section-catalog_right">
+            <div class="section-catalog__content-right">
               <div class="accordion">
-                <h3 class="ui-accordion-1" tabindex="0">C 1400 по 1499 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1400 по 1499 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading">
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1500 по 1599 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1500 по 1599 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1600 по 1699 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1600 по 1699 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1700 по 1799 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1700 по 1799 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1800 по 1899 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1800 по 1899 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 1900 по 1999 гг.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 1900 по 1999 гг.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
-                <h3 class="ui-accordion-1" tabindex="0">C 2000 г.</h3>
+                <h3 class="ui-accordion" tabindex="0">
+                  <span class="ui-accordion__header-wrapper">C 2000 г.</span>
+                </h3>
                 <div class="ui-accordion-heading" >
                   <div class="catalog-empty">
-                    <div class="catalog-emty__rectangle"></div>
+                    <div class="catalog-empty__rectangle"></div>
                     <div class="catalog-empty__content">
                       <h3 class="catalog-empty__content-heading">Здесь пока пусто</h3>
                       <div class="catalog-empty__content-text">А в галерее вы всегда можете найти что-то интересное для себя</div>
-                      <a href="#" class="catalog-empty__content-link">В галерею</a>
+                      <a href="#" class="catalog-empty__content-link link">В галерею</a>
                     </div>
                   </div>
                 </div>
@@ -1242,25 +970,17 @@
             </div>
           </div>
         </div>
-
-        <script>
-          $( function() {
-            $( ".accordion" ).accordion({
-              collapsible: true,
-              heightStyle: "content",
-            });
-          });
-        </script>
-
       </div>
     </section>
+
+    <!-- section-events -->
 
     <section class="section-events" id="events">
       <div class="section-events__container container">
         <h2 class="section-events__heading">События</h2>
         
         <div class="section-events__cards">
-          <ul class="section-events__card-list card-list-1">
+          <ul class="section-events__card-list list-reset">
             <li class="section-events__card-item">
               <div class="section-events__card-content">
                 <img src="img/card1.jpg" alt="" class="section-events__card-img">
@@ -1268,8 +988,7 @@
                 <h3 class="section-events__card-heading">Книжная гравюра в живом восприятии</h3>
                 <p class="section-events__card-descr">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо.</p>
               </div>
-              <a href="" class="section-events__card-link">Подробнее</a>
-
+              <a href="#" class="section-events__card-link">Подробнее</a>
             </li>
             <li class="section-events__card-item">
               <div class="section-events__card-content">
@@ -1278,7 +997,7 @@
                 <h3 class="section-events__card-heading">«Открытая дискуссия». Дмитрий Петров и Сергей Ильин.</h3>
                 <p class="section-events__card-descr">Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта.</p>
               </div>
-              <a href="" class="section-events__card-link">Подробнее</a>
+              <a href="#" class="section-events__card-link">Подробнее</a>
             </li>
             <li class="section-events__card-item section-events__card-item-3">
               <div class="section-events__card-content">
@@ -1287,18 +1006,16 @@
                 <h3 class="section-events__card-heading">Выставка «Формация 2020»</h3>
                 <p class="section-events__card-descr">Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в формировании глубокомысленных рассуждений.</p>
               </div>
-              <a href="" class="section-events__card-link">Подробнее</a>
+              <a href="#" class="section-events__card-link">Подробнее</a>
             </li>
-          </ul>
-          <ul class="section-events__card-list card-list-2">
             <li class="section-events__card-item">
               <div class="section-events__card-content">
                 <img src="img/card4.jpg" alt="" class="section-events__card-img">
                 <div class="section-events__card-note">Третьяковка на Крымском валу <br>с 30 марта по 30 апреля</div>
-                <h3 class="section-events__card-heading">XXIV Международная биеннале молодого искусства</h3>
+                <h3 class="section-events__card-heading">XXIV Междуна<wbr>родная биеннале молодого искусства</h3>
                 <p class="section-events__card-descr">Внезапно, реплицированные с зарубежных источников, современные исследования.</p>
               </div>
-              <a href="" class="section-events__card-link">Подробнее</a>
+              <a href="#" class="section-events__card-link">Подробнее</a>
             </li>
             <li class="section-events__card-item">
               <div class="section-events__card-content">
@@ -1307,86 +1024,88 @@
                 <h3 class="section-events__card-heading">Джон Винзор. Фотографии из серии «Метафора серебра»</h3>
                 <p class="section-events__card-descr">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо.</p>
               </div>
-              <a href="" class="section-events__card-link">Подробнее</a>
-            </li>
-            <li class="section-events__card-item section-events__card-item-5">
-              <div class="section-events__card-content">
-                <img src="img/card3.jpg" alt="" class="section-events__card-img">
-                <div class="section-events__card-note">Еврейский музей <br>с 31 марта по 21 апреля</div>
-                <h3 class="section-events__card-heading">Выставка «Формация 2020»</h3>
-                <p class="section-events__card-descr">Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в формировании глубокомысленных рассуждений.</p>
-              </div>
-              <a href="" class="section-events__card-link">Подробнее</a>
+              <a href="#" class="section-events__card-link">Подробнее</a>
             </li>
           </ul>
         </div>
 
         <div class="section-events__swiper-mobile">
-          <div class="swiper-container" id="swip-4">
+          <div class="swiper-container" id="swip-events">
             <div class="swiper-wrapper">
               <div class="swiper-slide swiper-slide-mobile">
                 <div class="section-events__card-content">
                   <img src="img/card1.jpg" alt="" class="section-events__card-img">
                   <div class="section-events__card-note">Музей им. Щусева <br>c 20 марта по 30 апреля</div>
-                  <h3 class="section-events__card-heading">Книжная гравюра в живом восприятии</h3>
-                  <p class="section-events__card-descr">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо.</p>
-                  
+                  <div class="section-events__wrapper-text">
+                    <h3 class="section-events__card-heading">Книжная гравюра в живом восприятии</h3>
+                    <p class="section-events__card-descr">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо.</p>
+                  </div>
+                  <div class="section-events__wrapper-link">
+                    <a href="#" class="section-events__card-link">Подробнее</a>
+                  </div>
                 </div>
-                <a href="" class="section-events__card-link">Подробнее</a>
               </div>
+
               <div class="swiper-slide swiper-slide-mobile">
                 <div class="section-events__card-content">
                   <img src="img/card2.jpg" alt="" class="section-events__card-img">
                   <div class="section-events__card-note">ММОМА <br>24 марта 19:00</div>
-                  <h3 class="section-events__card-heading">«Открытая дискуссия». Дмитрий Петров и Сергей Ильин.</h3>
-                  <p class="section-events__card-descr">Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта.</p>
+                  <div class="section-events__wrapper-text">
+                    <h3 class="section-events__card-heading">«Открытая дискуссия». Дмитрий Петров и Сергей Ильин.</h3>
+                    <p class="section-events__card-descr">Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта.</p>
+                  </div>
+                  <div class="section-events__wrapper-link">
+                    <a href="#" class="section-events__card-link">Подробнее</a>
+                  </div>
                 </div>
-                <a href="" class="section-events__card-link">Подробнее</a>
               </div>
+
               <div class="swiper-slide swiper-slide-mobile"> 
                 <div class="section-events__card-content">
                   <img src="img/card3.jpg" alt="" class="section-events__card-img">
                   <div class="section-events__card-note">Еврейский музей <br>с 31 марта по 21 апреля</div>
-                  <h3 class="section-events__card-heading">Выставка «Формация 2020»</h3>
-                  <p class="section-events__card-descr">Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в формировании глубокомысленных рассуждений.</p>
+                  <div class="section-events__wrapper-text">
+                    <h3 class="section-events__card-heading">Выставка «Формация 2020»</h3>
+                    <p class="section-events__card-descr">Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в формировании глубокомысленных рассуждений.</p>
+                  </div>
+                  <div class="section-events__wrapper-link">
+                    <a href="#" class="section-events__card-link">Подробнее</a>
+                  </div>
                 </div>
-                <a href="" class="section-events__card-link">Подробнее</a>
               </div>
+
               <div class="swiper-slide swiper-slide-mobile"> 
                 <div class="section-events__card-content">
                   <img src="img/card4.jpg" alt="" class="section-events__card-img">
                   <div class="section-events__card-note">Третьяковка на Крымском валу <br>с 30 марта по 30 апреля</div>
-                  <h3 class="section-events__card-heading">XXIV Международная биеннале молодого искусства</h3>
-                  <p class="section-events__card-descr">Внезапно, реплицированные с зарубежных источников, современные исследования.</p>
+                  <div class="section-events__wrapper-text">
+                    <h3 class="section-events__card-heading">XXIV Международная биеннале молодого искусства</h3>
+                    <p class="section-events__card-descr">Внезапно, реплицированные с зарубежных источников, современные исследования.</p>
+                  </div>
+                  <div class="section-events__wrapper-link">
+                    <a href="#" class="section-events__card-link">Подробнее</a>
+                  </div>
                 </div>
-                <a href="" class="section-events__card-link">Подробнее</a>
               </div>
+
               <div class="swiper-slide swiper-slide-mobile">
                 <div class="section-events__card-content">
                   <img src="img/card5.jpg" alt="" class="section-events__card-img">
                   <div class="section-events__card-note">ММАМ <br>с 8 апреля по 20 мая</div>
-                  <h3 class="section-events__card-heading">Джон Винзор. Фотографии из серии «Метафора серебра»</h3>
-                  <p class="section-events__card-descr">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо.</p>
+                  <div class="section-events__wrapper-text">
+                    <h3 class="section-events__card-heading">Джон Винзор. Фотографии из серии «Метафора серебра»</h3>
+                    <p class="section-events__card-descr">Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо.</p>
+                  </div>
+                  <div class="section-events__wrapper-link">
+                    <a href="#" class="section-events__card-link">Подробнее</a>
+                  </div>
                 </div>
-                <a href="" class="section-events__card-link">Подробнее</a>
               </div>
             </div>
             <div class="swiper-pagination swiper-pagination-8"></div>
           </div>
         </div>
-        <div class="swiper-frame"></div>
-
-        <script>
-          const swiper6 = new Swiper('#swip-4', {
-            loop: true,
-            pagination: {
-              el: '.swiper-pagination',
-              type: 'bullets',
-            },
-          });
-        </script>
-
-        <button class="btn-events" aria-label="Кнопка">Все события</button>
+        <button class="btn-events" aria-label="Раскрыть">Все события</button>
       </div>
     </section>
 
@@ -1399,66 +1118,66 @@
           <h2 class="section-editions__heading">Издания</h2>
           <div class="checkbox-custom">
             <div class="section-editions__checkbox-heading">Категории</div>
-            <ul class="checkbox__list">
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-1" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-1" class="label__checkbox" tabindex="0" role="checkbox">Бестселлеры</label>
+            <ul class="section-editions__checkbox-list list-reset">
+              <li class="checkbox">
+                <input type="checkbox" name="категория бестселлеры" class="checkbox__input" id="checkbox-1">
+                <span class="checkbox__icon" tabindex="0" role="checkbox" aria-checked="false"></span>
+                <label for="checkbox-1" class="checkbox__label">Бестселлеры</label>
               </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-2" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-2" class="label__checkbox" tabindex="0" role="checkbox">Искусство</label>
+              <li class="checkbox">
+                <input type="checkbox" name="категория искусство" class="checkbox__input" id="checkbox-2">
+                <span class="checkbox__icon" tabindex="0" role="checkbox" aria-checked="false"></span>
+                <label for="checkbox-2" class="checkbox__label">Искусство</label>
               </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-3" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-3" class="label__checkbox" tabindex="0" role="checkbox">Архитектура</label>
+              <li class="checkbox">
+                <input type="checkbox" name="категория архитектура" class="checkbox__input" id="checkbox-3">
+                <span class="checkbox__icon" tabindex="0" role="checkbox" aria-checked="false"></span>
+                <label for="checkbox-3" class="checkbox__label">Архитектура</label>
               </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-4" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-4" class="label__checkbox" tabindex="0" role="checkbox">Дизайн</label>
+              <li class="checkbox">
+                <input type="checkbox" name="категория дизайн" class="checkbox__input" id="checkbox-4">
+                <span class="checkbox__icon" tabindex="0" role="checkbox" aria-checked="false"></span>
+                <label for="checkbox-4" class="checkbox__label">Дизайн</label>
               </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-5" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-5" class="label__checkbox" tabindex="0" role="checkbox">Мода</label>
+              <li class="checkbox">
+                <input type="checkbox" name="категория мода" class="checkbox__input" id="checkbox-5">
+                <span class="checkbox__icon" tabindex="0" role="checkbox" aria-checked="false"></span>
+                <label for="checkbox-5" class="checkbox__label">Мода</label>
               </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-6" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-6" class="label__checkbox" tabindex="0" role="checkbox">Детям</label>
+              <li class="checkbox">
+                <input type="checkbox" name="категория детям" class="checkbox__input" id="checkbox-6">
+                <span class="checkbox__icon" tabindex="0" role="checkbox" aria-checked="false"></span>
+                <label for="checkbox-6" class="checkbox__label">Детям</label>
               </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-7" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-7" class="label__checkbox" tabindex="0" role="checkbox">Художественная литература</label>
+              <li class="checkbox">
+                <input type="checkbox" name="категория художественная литература" class="checkbox__input" id="checkbox-7">
+                <span class="checkbox__icon" tabindex="0" role="checkbox" aria-checked="false"></span>
+                <label for="checkbox-7" class="checkbox__label">Художественная литература</label>
               </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-8" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-8" class="label__checkbox" tabindex="0" role="checkbox">Публицистика</label>
+              <li class="checkbox">
+                <input type="checkbox" name="категория публицистика" class="checkbox__input" id="checkbox-8">
+                <span class="checkbox__icon" tabindex="0" role="checkbox" aria-checked="false"></span>
+                <label for="checkbox-8" class="checkbox__label">Публицистика</label>
               </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-9" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-9" class="label__checkbox" tabindex="0" role="checkbox">Путеводители</label>
+              <li class="checkbox">
+                <input type="checkbox" name="категория путеводители" class="checkbox__input" id="checkbox-9">
+                <span class="checkbox__icon" tabindex="0" role="checkbox" aria-checked="false"></span>
+                <label for="checkbox-9" class="checkbox__label">Путеводители</label>
               </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-10" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-10" class="label__checkbox" tabindex="0" role="checkbox">Философия</label>
+              <li class="checkbox">
+                <input type="checkbox" name="категория философия" class="checkbox__input" id="checkbox-10">
+                <span class="checkbox__icon" tabindex="0" role="checkbox" aria-checked="false"></span>
+                <label for="checkbox-10" class="checkbox__label">Философия</label>
               </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-11" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-11" class="label__checkbox" tabindex="0" role="checkbox">Учебная литература</label>
+              <li class="checkbox">
+                <input type="checkbox" name="категория учебная литература" class="checkbox__input" id="checkbox-11">
+                <span class="checkbox__icon" tabindex="0" role="checkbox" aria-checked="false"></span>
+                <label for="checkbox-11" class="checkbox__label">Учебная литература</label>
               </li>
-              <li class="checkbox__item">
-                <input type="checkbox" name="категории" id="checkbox-12" class="checkbox">
-                <span class="checkbox-icon"></span>
-                <label for="checkbox-12" class="label__checkbox" tabindex="0" role="checkbox">Журналы и газеты</label>
+              <li class="checkbox">
+                <input type="checkbox" name="категория журналы и газеты" class="checkbox__input" id="checkbox-12">
+                <span class="checkbox__icon" tabindex="0" role="checkbox" aria-checked="false"></span>
+                <label for="checkbox-12" class="checkbox__label">Журналы и газеты</label>
               </li>
             </ul>
             <div class="section-editions__price-heading">Цена</div>
@@ -1474,154 +1193,118 @@
 
         <!-- editions-choices -->
 
-        <div class="checkbox-custom__mobile">
-          <div class="section-editions__checkbox-heading" id="but" onclick="but()">Категории<span class="checkbox-icon-arr"></span></div>
-          <ul class="checkbox__list checkbox__list-mobile" id="checkbox">
-            <li class="checkbox__item">
-              <input type="checkbox" name="категории" id="checkbox-13" class="checkbox">
-              <span class="checkbox-icon"></span>
-              <label for="checkbox-13" class="label__checkbox" tabindex="0">
+        <div class="section-editions__checkbox-mobile">
+          <div class="section-editions__checkbox-heading" id="but" onclick="but()">Категории<span class="checkbox-array"></span></div>
+          <ul class="section-editions__checkbox-list list-reset checkbox-list-mobile" id="checkbox-list">
+            <li class="checkbox">
+              <input type="checkbox" name="категория бестселлеры" class="checkbox__input" id="checkbox-13">
+              <span class="checkbox__icon"></span>
+              <label for="checkbox-13" class="checkbox__label" tabindex="0">
                 Бестселлеры
-                <span class="checkbox-icon2"></span>
+                <span class="checkbox__icon2"></span>
               </label>
             </li>
-            <li class="checkbox__item">
-              <input type="checkbox" name="категории" id="checkbox-14" class="checkbox">
-              <span class="checkbox-icon"></span>
-              <label for="checkbox-14" class="label__checkbox" tabindex="0">
+            <li class="checkbox">
+              <input type="checkbox" name="категория искусство" class="checkbox__input" id="checkbox-14">
+              <span class="checkbox__icon"></span>
+              <label for="checkbox-14" class="checkbox__label" tabindex="0">
                 Искусство
-                <span class="checkbox-icon2"></span>
+                <span class="checkbox__icon2"></span>
               </label>
             </li>
-            <li class="checkbox__item">
-              <input type="checkbox" name="категории" id="checkbox-15" class="checkbox">
-              <span class="checkbox-icon"></span>
-              <label for="checkbox-15" class="label__checkbox" tabindex="0">
+            <li class="checkbox">
+              <input type="checkbox" name="категория архитектура" class="checkbox__input" id="checkbox-15">
+              <span class="checkbox__icon"></span>
+              <label for="checkbox-15" class="checkbox__label" tabindex="0">
                 Архитектура
-                <span class="checkbox-icon2"></span>
+                <span class="checkbox__icon2"></span>
               </label>
             </li>
-            <li class="checkbox__item">
-              <input type="checkbox" name="категории" id="checkbox-16" class="checkbox">
-              <span class="checkbox-icon"></span>
-              <label for="checkbox-16" class="label__checkbox" tabindex="0">
+            <li class="checkbox">
+              <input type="checkbox" name="категория дизайн" class="checkbox__input" id="checkbox-16">
+              <span class="checkbox__icon"></span>
+              <label for="checkbox-16" class="checkbox__label" tabindex="0">
                 Дизайн
-                <span class="checkbox-icon2"></span>
+                <span class="checkbox__icon2"></span>
               </label>
             </li>
-            <li class="checkbox__item">
-              <input type="checkbox" name="категории" id="checkbox-17" class="checkbox">
-              <span class="checkbox-icon"></span>
-              <label for="checkbox-17" class="label__checkbox" tabindex="0">
+            <li class="checkbox">
+              <input type="checkbox" name="категория мода" class="checkbox__input" id="checkbox-17">
+              <span class="checkbox__icon"></span>
+              <label for="checkbox-17" class="checkbox__label" tabindex="0">
                 Мода
-                <span class="checkbox-icon2"></span>
+                <span class="checkbox__icon2"></span>
               </label>
             </li>
-            <li class="checkbox__item">
-              <input type="checkbox" name="категории" id="checkbox-18" class="checkbox">
-              <span class="checkbox-icon"></span>
-              <label for="checkbox-18" class="label__checkbox" tabindex="0">
+            <li class="checkbox">
+              <input type="checkbox" name="категория детям" class="checkbox__input" id="checkbox-18">
+              <span class="checkbox__icon"></span>
+              <label for="checkbox-18" class="checkbox__label" tabindex="0">
                 Детям
-                <span class="checkbox-icon2"></span>
+                <span class="checkbox__icon2"></span>
               </label>
             </li>
-            <li class="checkbox__item">
-              <input type="checkbox" name="категории" id="checkbox-19" class="checkbox">
-              <span class="checkbox-icon"></span>
-              <label for="checkbox-19" class="label__checkbox" tabindex="0">
+            <li class="checkbox">
+              <input type="checkbox" name="категория художественная литература" class="checkbox__input" id="checkbox-19">
+              <span class="checkbox__icon"></span>
+              <label for="checkbox-19" class="checkbox__label" tabindex="0">
                 Художественная литература
-                <span class="checkbox-icon2"></span>
+                <span class="checkbox__icon2"></span>
               </label>
             </li>
-            <li class="checkbox__item">
-              <input type="checkbox" name="категории" id="checkbox-20" class="checkbox">
-              <span class="checkbox-icon"></span>
-              <label for="checkbox-20" class="label__checkbox" tabindex="0">
+            <li class="checkbox">
+              <input type="checkbox" name="категория публицистика" class="checkbox__input" id="checkbox-20">
+              <span class="checkbox__icon"></span>
+              <label for="checkbox-20" class="checkbox__label" tabindex="0">
                 Публицистика
-                <span class="checkbox-icon2"></span>
+                <span class="checkbox__icon2"></span>
               </label>
             </li>
-            <li class="checkbox__item">
-              <input type="checkbox" name="категории" id="checkbox-21" class="checkbox">
-              <span class="checkbox-icon"></span>
-              <label for="checkbox-21" class="label__checkbox" tabindex="0">
+            <li class="checkbox">
+              <input type="checkbox" name="категория путеводители" class="checkbox__input" id="checkbox-21">
+              <span class="checkbox__icon"></span>
+              <label for="checkbox-21" class="checkbox__label" tabindex="0">
                 Путеводители
-                <span class="checkbox-icon2"></span>
+                <span class="checkbox__icon2"></span>
               </label>
             </li>
-            <li class="checkbox__item">
-              <input type="checkbox" name="категории" id="checkbox-22" class="checkbox">
-              <span class="checkbox-icon"></span>
-              <label for="checkbox-22" class="label__checkbox" tabindex="0">
+            <li class="checkbox">
+              <input type="checkbox" name="категория философия" class="checkbox__input" id="checkbox-22">
+              <span class="checkbox__icon"></span>
+              <label for="checkbox-22" class="checkbox__label" tabindex="0">
                 Философия
-                <span class="checkbox-icon2"></span>
+                <span class="checkbox__icon2"></span>
               </label>
             </li>
-            <li class="checkbox__item">
-              <input type="checkbox" name="категории" id="checkbox-23" class="checkbox">
-              <span class="checkbox-icon"></span>
-              <label for="checkbox-23" class="label__checkbox" tabindex="0">
+            <li class="checkbox">
+              <input type="checkbox" name="категория учебная литература" class="checkbox__input" id="checkbox-23">
+              <span class="checkbox__icon"></span>
+              <label for="checkbox-23" class="checkbox__label" tabindex="0">
                 Учебная литература
-                <span class="checkbox-icon2"></span>
+                <span class="checkbox__icon2"></span>
               </label>
             </li>
-            <li class="checkbox__item">
-              <input type="checkbox" name="категории" id="checkbox-24" class="checkbox">
-              <span class="checkbox-icon"></span>
-              <label for="checkbox-24" class="label__checkbox" tabindex="0">
+            <li class="checkbox">
+              <input type="checkbox" name="категория журналы и газеты" class="checkbox__input" id="checkbox-24">
+              <span class="checkbox__icon"></span>
+              <label for="checkbox-24" class="checkbox__label" tabindex="0">
                 Журналы и газеты
-                <span class="checkbox-icon2"></span>
+                <span class="checkbox__icon2"></span>
               </label>
             </li>
           </ul>
           <div class="section-editions__price-heading">Цена</div>
           <div class="section-editions__price-content">
-            <label for="price-from__mobile" class="section-editions__price-from">От</label>
-            <input type="number" step="0.01" min="0" placeholder="50" id="price-from__mobile" class="price-from__mobile">
-            <label for="price-up-to__mobile" class="section-editions__price-up-to">до</label>
-            <input type="number" step="0.01" min="0" placeholder="25 000" id="price-up-to__mobile" class="price-up-to__mobile">
+            <label for="price-from-mobile" class="section-editions__price-from">От</label>
+            <input type="number" step="0.01" min="0" placeholder="50" id="price-from-mobile" class="price-from">
+            <label for="price-up-to-mobile" class="section-editions__price-up-to">до</label>
+            <input type="number" step="0.01" min="0" placeholder="25 000" id="price-up-to-mobile" class="price-up-to">
             <div class="section-editions__price-rub">руб.</div>
           </div>
         </div>
 
-        <script>
-          function active() {
-            let check = document.querySelector('#checkbox');
-            for(let i = 0; i < check.children.length; ++i) {
-              check.children[i].style.display = "block"
-              document.querySelector('.checkbox-icon-arr').classList.add('checkbox-icon-arr-rotate')
-            }
-          }
-          
-          function hidden() {
-            let check = document.querySelector('#checkbox');
-            for(let i = 0; i < check.children.length; ++i) {
-              if(!check.children[i].firstElementChild.checked) {
-                check.children[i].style.display = "none"
-                document.querySelector('.checkbox-icon-arr').classList.remove('checkbox-icon-arr-rotate')
-              }
-            }
-          }
-          
-          let count = 1;
-          function but () {
-            count *= -1;
-            if (count > 0) active();
-            else hidden();
-          }
-
-          document.querySelectorAll('.checkbox__item').forEach(function(ev){
-            ev.querySelector('.label__checkbox').addEventListener('click', function(event){
-              event.target.querySelector('.checkbox-icon2').classList.toggle('checkbox-icon-cross')
-            ev.querySelector('.checkbox-icon2').addEventListener('click', function(event2){
-              event2.target.classList.remove('checkbox-icon-cross')
-            })
-          })
-        })
-        </script>
-
         <div class="section-editions__swiper">
-          <div class="swiper-container swip-2" id="swip-2">
+          <div class="swiper-container swip-editions" id="swip-editions">
             <div class="swiper-pagination swiper-pagination-2"></div>
             <div class="swiper-button-prev swiper-button-prev-2"></div>
             <div class="swiper-button-next swiper-button-next-2"></div>
@@ -1634,7 +1317,7 @@
                 </div>
                 <div class="section-editions__item-author">Иттен, Иохансен</div>
                 <div class="section-editions__link-wrapper">
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+                  <a href="" class="section-editions__item-link">Заказать</a>
                 </div>
               </div>
               <div class="swiper-slide">
@@ -1645,7 +1328,7 @@
                 </div>
                 <div class="section-editions__item-author">Рудер, Эмиль</div>
                 <div class="section-editions__link-wrapper">
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+                  <a href="" class="section-editions__item-link">Заказать</a>
                 </div>
               </div>
               <div class="swiper-slide">
@@ -1656,7 +1339,7 @@
                 </div>
                 <div class="section-editions__item-author">Гордон, Юрий</div>
                 <div class="section-editions__link-wrapper">
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+                  <a href="" class="section-editions__item-link">Заказать</a>
                 </div>
               </div>
               <div class="swiper-slide">
@@ -1667,7 +1350,7 @@
                 </div>
                 <div class="section-editions__item-author">Кричевский, Владимир</div>
                 <div class="section-editions__link-wrapper">
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+                  <a href="" class="section-editions__item-link">Заказать</a>
                 </div>
               </div>
               <div class="swiper-slide">
@@ -1678,7 +1361,7 @@
                 </div>
                 <div class="section-editions__item-author">Мюллер-Брокманн, Йозеф</div>
                 <div class="section-editions__link-wrapper">
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+                  <a href="" class="section-editions__item-link">Заказать</a>
                 </div>
               </div>
               <div class="swiper-slide">
@@ -1689,7 +1372,7 @@
                 </div>
                 <div class="section-editions__item-author">Хеллер, Чваст</div>
                 <div class="section-editions__link-wrapper">
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+                  <a href="" class="section-editions__item-link">Заказать</a>
                 </div>
               </div>
               <div class="swiper-slide">
@@ -1700,43 +1383,13 @@
                 </div>
                 <div class="section-editions__item-author">Арнхейм, Рудольф</div>
                 <div class="section-editions__link-wrapper">
-                  <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+                  <a href="" class="section-editions__item-link">Заказать</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
   
-        <script>
-          const swiper4 = new Swiper('#swip-2', {
-            breakpoints: {
-            1025: {
-              slidesPerView: 3,
-              spaceBetween: 50,
-              slidesPerGroup: 3,
-            },
-            769: {
-              slidesPerView: 2,
-              spaceBetween: 50,
-              slidesPerGroup: 2,
-            },
-            1: {
-              slidesPerView: 2,
-              spaceBetween: 34,
-              slidesPerGroup: 2,
-            },
-          },
-            pagination: {
-              el: '.swiper-pagination',
-              type: 'fraction',
-            },
-            navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            },
-          });
-        </script>
-
         <div class="section-editions__card-mobile">
           <div class="section-editions__card-row">
             <div class="section-editions__card">
@@ -1747,7 +1400,7 @@
                 <div class="section-editions__item-price">620 руб</div>
               </div>
               <div class="section-editions__link-wrapper">
-                <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+                <a href="" class="section-editions__item-link">Заказать</a>
               </div>
             </div>
 
@@ -1759,7 +1412,7 @@
                 <div class="section-editions__item-price">2 450 руб</div>
               </div>
               <div class="section-editions__link-wrapper">
-                <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+                <a href="" class="section-editions__item-link">Заказать</a>
               </div>
             </div>
           </div>
@@ -1773,7 +1426,7 @@
                 <div class="section-editions__item-price">2 200 руб</div>
               </div>
               <div class="section-editions__link-wrapper">
-                <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+                <a href="" class="section-editions__item-link">Заказать</a>
               </div>
             </div>
 
@@ -1785,7 +1438,7 @@
                 <div class="section-editions__item-price">1 100 руб</div>
               </div>
               <div class="section-editions__link-wrapper">
-                <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+                <a href="" class="section-editions__item-link">Заказать</a>
               </div>
             </div>
           </div>
@@ -1799,7 +1452,7 @@
                 <div class="section-editions__item-price">1 450 руб</div>
               </div>
               <div class="section-editions__link-wrapper">
-                <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+                <a href="" class="section-editions__item-link">Заказать</a>
               </div>
             </div>
               
@@ -1811,7 +1464,7 @@
                 <div class="section-editions__item-price">3 200 руб</div>
               </div>
               <div class="section-editions__link-wrapper">
-                <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+                <a href="" class="section-editions__item-link">Заказать</a>
               </div>
             </div>
           </div>
@@ -1824,7 +1477,7 @@
               <div class="section-editions__item-price">2 220 руб</div>
             </div>
             <div class="section-editions__link-wrapper">
-              <a href="" class="section-editions__item-link" aria-label="Кнопка">Заказать</a>
+              <a href="" class="section-editions__item-link">Заказать</a>
             </div>
           </div>
         </div>
@@ -1861,7 +1514,7 @@
             </div>
             <div class="marker marker-3" tabindex="0"></div>
           </span>
-          <p class="section-projects__tooltip-text">предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости. Подробнее: <a href="" class="tooltip-link">blanchard-art.ru/projects/about</a></p>
+          <p class="section-projects__tooltip-text">предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости. Подробнее: <a href="" class="tooltip-link link">blanchard-art.ru/projects/about</a></p>
         </div>
 
         <h3 class="section-projects__slider-heading">Партнёры проектов:</h3>
@@ -1869,179 +1522,111 @@
         <!-- projects-swip -->
 
         <div class="slider-main">
-          <div class="swiper-container swip-3" id="swip-3">
+          <div class="swiper-container swip-projects" id="swip-projects">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <a class="section-projects__item-frame frame-1"></a>
+                <a href="#" class="section-projects__item-frame">
+                  <img class="section-projects__img section-projects__img-1" src="img/svg/1.1.svg" alt="Логотип партнера">
+                </a>
               </div>
               <div class="swiper-slide">
-                <a class="section-projects__item-frame frame-2"></a>
+                <a href="#" class="section-projects__item-frame">
+                  <img class="section-projects__img section-projects__img-2" src="img/svg/1.2.svg" alt="Логотип партнера">
+                </a>
               </div>
               <div class="swiper-slide">
-                <a class="section-projects__item-frame frame-3"></a>
+                <a href="#" class="section-projects__item-frame">
+                  <img class="section-projects__img section-projects__img-3" src="img/svg/1.3.svg" alt="Логотип партнера">
+                </a>
               </div>
               <div class="swiper-slide">
-                <a class="section-projects__item-frame frame-4"></a>
+                <a href="#" class="section-projects__item-frame">
+                  <img class="section-projects__img section-projects__img-4" src="img/svg/1.4.svg" alt="Логотип партнера">
+                </a>
               </div>
               <div class="swiper-slide"> 
-                <a class="section-projects__item-frame frame-5"></a>
+                <a href="#" class="section-projects__item-frame">
+                  <img class="section-projects__img section-projects__img-5" src="img/svg/1.5.svg" alt="Логотип партнера">
+                </a>
               </div>
               <div class="swiper-slide">  
-                <a class="section-projects__item-frame frame-6"></a>
+                <a href="#" class="section-projects__item-frame">
+                  <img class="section-projects__img section-projects__img-6" src="img/svg/1.6.svg" alt="Логотип партнера">
+                </a>
               </div>
               <div class="swiper-slide">
-                <a class="section-projects__item-frame frame-7"></a>
+                <a href="#" class="section-projects__item-frame">
+                  <img class="section-projects__img section-projects__img-7" src="img/svg/1.7.svg" alt="Логотип партнера">
+                </a>
               </div>
               <div class="swiper-slide">
-                <a class="section-projects__item-frame frame-8"></a>
+                <a href="#" class="section-projects__item-frame">
+                  <img class="section-projects__img section-projects__img-8" src="img/svg/1.8.svg" alt="Логотип партнера">
+                </a>
               </div>
               <div class="swiper-slide">
-                <a class="section-projects__item-frame frame-9"></a>
+                <a href="#" class="section-projects__item-frame">
+                  <img class="section-projects__img section-projects__img-9" src="img/svg/1.9.svg" alt="Логотип партнера">
+                </a>
               </div>
             </div>
           </div>
           <div class="swiper-button-prev swiper-button-prev-3"></div>
           <div class="swiper-button-next swiper-button-next-3"></div>
         </div>
-
-        <script>
-            const swiper5 = new Swiper('#swip-3', {
-              breakpoints: {
-              1025: {
-                slidesPerView: 3,
-                spaceBetween: 50,
-                slidesPerGroup: 3,
-              },
-              769: {
-                slidesPerView: 2,
-                spaceBetween: 50,
-                slidesPerGroup: 2,
-              },
-              321: {
-                slidesPerView: 2,
-                spaceBetween: 34,
-                slidesPerGroup: 2,
-              },
-              1: {
-                slidesPerView: 1,
-                spaceBetween: 0,
-                slidesPerGroup: 1,
-              },
-            },
-              pagination: {
-              el: '.swiper-pagination',
-              type: 'fraction',
-            },
-            navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            },
-          });
-        </script>
-
       </div>
     </section>
 
     <section class="section-contacts" id="contacts">
       <div class="container">
         <h2 class="section-contacts__heading">Контакты</h2>
-        <div class="section-contacts__about">
-          <div class="section-contacts__left-address">Шоурум №2</div>
-          <address>Леонтьевский переулок, дом 5/1</address>
-          <h3 class="section-contacts__left-heading">Заказать обратный звонок</h3>
-
-          <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="section-contacts__form">
-            <input type="submit" value="Заказать" class="section-contacts__btn" aria-label="Кнопка">
-            <input type="tel" name="Телефон" placeholder="Телефон*" autocomplete="off" data-validate-field="tel" data-validate-rules="phone" id="tel" class="section-contacts__form-tel">
-            <input type="text" name="Имя" placeholder="Имя*" autocomplete="off" data-validate-field="name" id="name" class="section-contacts__form-name">
-          </form>
-
-          <script>
-            var selector = document.querySelector("input[type='tel']");
-            var im = new Inputmask("+7(999) 999-99-99");
-            im.mask(selector);
-      
-            new JustValidate('.section-contacts__form', {
-              rules: {
-                name: {
-                  required: true,
-                  minLength: 3,
-                  maxLength: 20,
-                  strength: {
-                    custom: '^[a-zA-Z0-9]'
-                    }
-                  },
-      
-                tel: {
-                  required: true,
-                  function: (name, value) => {
-                    const phone = selector.inputmask.unmaskedvalue()
-                    return Number(phone) && phone.length === 10
-                  }
-                }
-              },
-
-              messages: {
-                name: {
-                  required: 'Поле обязательное для заполнения',
-                  minLength: 'Поле должно содержать не меньше 3 букв (цифр)',
-                  maxLength: 'Поле должно содержать не больше 20 букв (цифр)',
-                  strength: 'Недопустимый формат'
-                },
-                tel: {
-                  required: 'Поле обязательное для заполнения',
-                }
-              }
-            })
-          </script>
-
-          <h3 class="section-contacts__left-heading section-contacts__heading-icon">Связаться в один клик</h3>
-          <ul class="section-contacts__list">
-            <li class="section-contacts__item">
-              <a href="https://wa.me/79134277007" class="section-contacts__icon icon-whatsapp"></a>
-            </li>
-            <li class="section-contacts__item">
-              <a href="http://t.me/dmitrii" class="section-contacts__icon icon-telegram"></a>
-            </li>
-          </ul>
-        </div>
       </div>
 
-      <div class="section-contacts__container">
-        <div  class="section-contacts__contant">
-          <div class="section-contacts__left"></div>
+      <div class="section-contacts__grid-wrapper">
+        <div class="section-contacts__grid-item section-contacts__grid-address">
+          <div class="section-contacts__address-wrapper">
+            <div class="section-contacts__left-address">Шоурум №2</div>
+            <address>Леонтьевский переулок, дом 5/1</address>
+          </div>
+        </div>
+  
+        <div class="section-contacts__grid-item section-contacts__grid-form">
+          <div class="section-contacts_form-wrapper">
+            <h3 class="section-contacts__left-heading">Заказать обратный звонок</h3>
+  
+            <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="section-contacts__form">
+              <button type="submit" class="section-contacts__btn">Заказать</button>
+              <input type="tel" name="Телефон" placeholder="Телефон*" autocomplete="off" data-validate-field="tel" data-validate-rules="phone" id="tel" class="section-contacts__form-tel">
+              <input type="text" name="Имя" placeholder="Имя*" autocomplete="off" data-validate-field="name" id="name" class="section-contacts__form-name">
+            </form>
+    
+            <h3 class="section-contacts__left-heading section-contacts__heading-icon">Связаться в один клик</h3>
+            <ul class="section-contacts__list list-reset">
+              <li class="section-contacts__item">
+                <a href="https://wa.me/79134277007" class="section-contacts__icon icon-whatsapp"></a>
+              </li>
+              <li class="section-contacts__item">
+                <a href="http://t.me/dmitrii" class="section-contacts__icon icon-telegram"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+  
+        <div class="section-contacts__grid-item section-contacts__grid-map">
           <div class="map" id="map"></div>
-          <script src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU" type="text/javascript"></script>
-          <script type="text/javascript">
-            ymaps.ready(init);
-            function init(){
-              var myMap = new ymaps.Map("map", {
-                center: [55.76, 37.62],
-                zoom: 13,
-              });
-      
-              var myPlacemark = new ymaps.Placemark([55.758457, 37.600821], {}, {
-                  iconLayout: 'default#image',
-                  iconImageHref: 'img/svg/MyIcon.svg',
-                  iconImageSize: [20, 20],
-                  iconImageOffset: [0, 0]
-              });
-      
-              myMap.geoObjects.add(myPlacemark);
-            }
-          </script>
         </div>
       </div>
+   
     </section>
   </main>
 
-  <footer>
+  <footer class="footer">
     <div class="footer__container container">
-      <a href="" class="footer-logo">
-        <img src="img/logo.png" alt="Логотип Blanchard" class="footer-logo__img">
+      <a href="" class="footer__logo logo">
+        <img src="img/logo.png" alt="Логотип Blanchard" class="logo__img">
       </a>
       <div class="footer__container-social">
-        <ul class="footer__list">
+        <ul class="footer__list list-reset">
           <li class="footer__item">
             <a href="" class="footer__icon icon-vk"></a>
           </li>

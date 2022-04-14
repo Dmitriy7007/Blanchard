@@ -1,6 +1,33 @@
-window.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('.btn-events').addEventListener ('click', function() {
-      document.querySelector('.card-list-2').classList.toggle('events-is-active')
-      document.querySelector('.btn-events').classList.add('btn-events-is-hidden')
-    })
-})
+const cards = document.querySelectorAll(".section-events__card-item");
+const btnVisible = document.querySelector(".btn-events");
+let countCard;
+const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+function renderCard() {
+  cards.forEach((el, index) => {
+    el.style.display = "flex";
+    if (index >= countCard) {
+      el.style.display = "none";
+    }
+  });
+}
+
+function handleTabletChange(e) {
+  if (e.matches) {
+    countCard = 2;
+    renderCard();
+  } else {
+    countCard = 3;
+    renderCard();
+  }
+}
+
+handleTabletChange(mediaQuery);
+mediaQuery.addListener(handleTabletChange);
+
+btnVisible.addEventListener("click", (count) => {
+  cards.forEach((el) => {
+    el.style.display = "flex";
+    btnVisible.classList.add("btn-events-is-hidden");
+  });
+});
